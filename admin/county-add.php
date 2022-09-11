@@ -32,7 +32,7 @@ if(isset($_POST['form1'])) {
 
 <section class="content-header">
     <div class="content-header-left">
-        <h1>Add Country</h1>
+        <h1>Add County</h1>
     </div>
     <div class="content-header-right">
         <a href="county.php" class="btn btn-primary btn-sm">View All</a>
