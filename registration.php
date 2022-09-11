@@ -47,17 +47,17 @@ if (isset($_POST['form1'])) {
         $error_message .= LANG_VALUE_125."<br>";
     }
 
-    if(empty($_POST['cust_country'])) {
+    if(empty($_POST['cust_county'])) {
         $valid = 0;
         $error_message .= LANG_VALUE_126."<br>";
     }
 
-    if(empty($_POST['cust_city'])) {
+    if(empty($_POST['cust_town'])) {
         $valid = 0;
         $error_message .= LANG_VALUE_127."<br>";
     }
 
-    if(empty($_POST['cust_state'])) {
+    if(empty($_POST['cust_location'])) {
         $valid = 0;
         $error_message .= LANG_VALUE_128."<br>";
     }
@@ -91,26 +91,26 @@ if (isset($_POST['form1'])) {
                                         cust_cname,
                                         cust_email,
                                         cust_phone,
-                                        cust_country,
+                                        cust_county,
                                         cust_address,
-                                        cust_city,
-                                        cust_state,
+                                        cust_town,
+                                        cust_location,
                                         cust_zip,
                                         cust_b_name,
                                         cust_b_cname,
                                         cust_b_phone,
-                                        cust_b_country,
+                                        cust_b_county,
                                         cust_b_address,
-                                        cust_b_city,
-                                        cust_b_state,
+                                        cust_b_town,
+                                        cust_b_location,
                                         cust_b_zip,
                                         cust_s_name,
                                         cust_s_cname,
                                         cust_s_phone,
-                                        cust_s_country,
+                                        cust_s_county,
                                         cust_s_address,
-                                        cust_s_city,
-                                        cust_s_state,
+                                        cust_s_town,
+                                        cust_s_location,
                                         cust_s_zip,
                                         cust_password,
                                         cust_token,
@@ -123,10 +123,10 @@ if (isset($_POST['form1'])) {
                                         strip_tags($_POST['cust_cname']),
                                         strip_tags($_POST['cust_email']),
                                         strip_tags($_POST['cust_phone']),
-                                        strip_tags($_POST['cust_country']),
+                                        strip_tags($_POST['cust_county']),
                                         strip_tags($_POST['cust_address']),
-                                        strip_tags($_POST['cust_city']),
-                                        strip_tags($_POST['cust_state']),
+                                        strip_tags($_POST['cust_town']),
+                                        strip_tags($_POST['cust_location']),
                                         strip_tags($_POST['cust_zip']),
                                         '',
                                         '',
@@ -175,8 +175,8 @@ if (isset($_POST['form1'])) {
         unset($_POST['cust_email']);
         unset($_POST['cust_phone']);
         unset($_POST['cust_address']);
-        unset($_POST['cust_city']);
-        unset($_POST['cust_state']);
+        unset($_POST['cust_town']);
+        unset($_POST['cust_location']);
         unset($_POST['cust_zip']);
 
         $success_message = LANG_VALUE_152;
@@ -184,7 +184,8 @@ if (isset($_POST['form1'])) {
 }
 ?>
 
-<div class="page-banner" style="background-color:#444;background-image: url(assets/uploads/<?php echo $banner_registration; ?>);">
+<div class="page-banner"
+    style="background-color:#444;background-image: url(assets/uploads/<?php echo $banner_registration; ?>);">
     <div class="inner">
         <h1><?php echo LANG_VALUE_16; ?></h1>
     </div>
@@ -196,14 +197,14 @@ if (isset($_POST['form1'])) {
             <div class="col-md-12">
                 <div class="user-content">
 
-                    
+
 
                     <form action="" method="post">
                         <?php $csrf->echoInputField(); ?>
                         <div class="row">
                             <div class="col-md-2"></div>
                             <div class="col-md-8">
-                                
+
                                 <?php
                                 if($error_message != '') {
                                     echo "<div class='error' style='padding: 10px;background:#f1f1f1;margin-bottom:20px;'>".$error_message."</div>";
@@ -215,52 +216,61 @@ if (isset($_POST['form1'])) {
 
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_102; ?> *</label>
-                                    <input type="text" class="form-control" name="cust_name" value="<?php if(isset($_POST['cust_name'])){echo $_POST['cust_name'];} ?>">
+                                    <input type="text" class="form-control" name="cust_name"
+                                        value="<?php if(isset($_POST['cust_name'])){echo $_POST['cust_name'];} ?>">
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_103; ?></label>
-                                    <input type="text" class="form-control" name="cust_cname" value="<?php if(isset($_POST['cust_cname'])){echo $_POST['cust_cname'];} ?>">
+                                    <input type="text" class="form-control" name="cust_cname"
+                                        value="<?php if(isset($_POST['cust_cname'])){echo $_POST['cust_cname'];} ?>">
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_94; ?> *</label>
-                                    <input type="email" class="form-control" name="cust_email" value="<?php if(isset($_POST['cust_email'])){echo $_POST['cust_email'];} ?>">
+                                    <input type="email" class="form-control" name="cust_email"
+                                        value="<?php if(isset($_POST['cust_email'])){echo $_POST['cust_email'];} ?>">
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_104; ?> *</label>
-                                    <input type="text" class="form-control" name="cust_phone" value="<?php if(isset($_POST['cust_phone'])){echo $_POST['cust_phone'];} ?>">
+                                    <input type="text" class="form-control" name="cust_phone"
+                                        value="<?php if(isset($_POST['cust_phone'])){echo $_POST['cust_phone'];} ?>">
                                 </div>
                                 <div class="col-md-12 form-group">
                                     <label for=""><?php echo LANG_VALUE_105; ?> *</label>
-                                    <textarea name="cust_address" class="form-control" cols="30" rows="10" style="height:70px;"><?php if(isset($_POST['cust_address'])){echo $_POST['cust_address'];} ?></textarea>
+                                    <textarea name="cust_address" class="form-control" cols="30" rows="10"
+                                        style="height:70px;"><?php if(isset($_POST['cust_address'])){echo $_POST['cust_address'];} ?></textarea>
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <label for=""><?php echo LANG_VALUE_106; ?> *</label>
-                                    <select name="cust_country" class="form-control select2">
-                                        <option value="">Select country</option>
-                                    <?php
-                                    $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
+                                    <label for=""><?php echo "County"; ?> *</label>
+                                    <select name="cust_county" class="form-control select2">
+                                        <option value="">Select county</option>
+                                        <?php
+                                    $statement = $pdo->prepare("SELECT * FROM tbl_counties ORDER BY county_name ASC");
                                     $statement->execute();
                                     $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
                                     foreach ($result as $row) {
                                         ?>
-                                        <option value="<?php echo $row['country_id']; ?>"><?php echo $row['country_name']; ?></option>
+                                        <option value="<?php echo $row['county_id']; ?>">
+                                            <?php echo $row['county_name']; ?></option>
                                         <?php
                                     }
-                                    ?>    
-                                    </select>                                    
+                                    ?>
+                                    </select>
                                 </div>
-                                
+
                                 <div class="col-md-6 form-group">
-                                    <label for=""><?php echo LANG_VALUE_107; ?> *</label>
-                                    <input type="text" class="form-control" name="cust_city" value="<?php if(isset($_POST['cust_city'])){echo $_POST['cust_city'];} ?>">
+                                    <label for=""><?php echo 'Town'; ?> *</label>
+                                    <input type="text" class="form-control" name="cust_town"
+                                        value="<?php if(isset($_POST['cust_town'])){echo $_POST['cust_town'];} ?>">
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <label for=""><?php echo LANG_VALUE_108; ?> *</label>
-                                    <input type="text" class="form-control" name="cust_state" value="<?php if(isset($_POST['cust_state'])){echo $_POST['cust_state'];} ?>">
+                                    <label for=""><?php echo 'Location'; ?> *</label>
+                                    <input type="text" class="form-control" name="cust_location"
+                                        value="<?php if(isset($_POST['cust_location'])){echo $_POST['cust_location'];} ?>">
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_109; ?> *</label>
-                                    <input type="text" class="form-control" name="cust_zip" value="<?php if(isset($_POST['cust_zip'])){echo $_POST['cust_zip'];} ?>">
+                                    <input type="text" class="form-control" name="cust_zip"
+                                        value="<?php if(isset($_POST['cust_zip'])){echo $_POST['cust_zip'];} ?>">
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_96; ?> *</label>
@@ -272,12 +282,13 @@ if (isset($_POST['form1'])) {
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label for=""></label>
-                                    <input type="submit" class="btn btn-danger" value="<?php echo LANG_VALUE_15; ?>" name="form1">
+                                    <input type="submit" class="btn btn-danger" value="<?php echo LANG_VALUE_15; ?>"
+                                        name="form1">
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </form>
-                </div>                
+                </div>
             </div>
         </div>
     </div>

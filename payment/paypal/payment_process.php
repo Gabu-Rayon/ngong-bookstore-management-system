@@ -154,8 +154,8 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])){
 		$sql = $statement->execute(array(
 						$arr_cart_p_id[$i],
 						$arr_cart_p_name[$i],
-						$arr_cart_size_name[$i],
-						$arr_cart_color_name[$i],
+						// $arr_cart_size_name[$i],
+						// $arr_cart_color_name[$i],
 						$arr_cart_p_qty[$i],
 						$arr_cart_p_current_price[$i],
 						$item_number

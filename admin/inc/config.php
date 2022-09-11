@@ -9,7 +9,7 @@ date_default_timezone_set('America/Los_Angeles');
 $dbhost = 'localhost';
 
 // Database Name
-$dbname = 'ecommerceweb';
+$dbname = 'ngong-bookstore-system-01-db';
 
 // Database Username
 $dbuser = 'root';

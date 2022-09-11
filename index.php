@@ -268,6 +268,7 @@ foreach ($result as $row)
         <div class="row">
             <div class="col-md-12">
                 <div class="headline">
+                    <!-------->
                     <h2><?php echo $latest_product_title; ?></h2>
                     <h3><?php echo $latest_product_subtitle; ?></h3>
                 </div>
