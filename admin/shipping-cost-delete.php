@@ -7,7 +7,7 @@ if(!isset($_REQUEST['id'])) {
 	exit;
 } else {
 	// Check the id is valid or not
-	$statement = $pdo->prepare("SELECT * FROM tbl_color WHERE color_id=?");
+	$statement = $pdo->prepare("SELECT * FROM tbl_shipping_cost WHERE shipping_cost_id=?");
 	$statement->execute(array($_REQUEST['id']));
 	$total = $statement->rowCount();
 	if( $total == 0 ) {
@@ -19,9 +19,9 @@ if(!isset($_REQUEST['id'])) {
 
 <?php
 
-	// Delete from tbl_color
-	$statement = $pdo->prepare("DELETE FROM tbl_color WHERE color_id=?");
+	// Delete from tbl_size
+	$statement = $pdo->prepare("DELETE FROM tbl_shipping_cost WHERE shipping_cost_id=?");
 	$statement->execute(array($_REQUEST['id']));
 
-	header('location: color.php');
+	header('location: shipping-cost.php');
 ?>

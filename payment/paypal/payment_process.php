@@ -99,7 +99,7 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])){
         $i++;
         $arr_cart_p_name[$i] = $value;
     }
-
+/***
     $i=0;
     foreach($_SESSION['cart_size_name'] as $key => $value) 
     {
@@ -113,7 +113,7 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])){
         $i++;
         $arr_cart_color_name[$i] = $value;
     }
-
+***/
     $i=0;
     foreach($_SESSION['cart_p_qty'] as $key => $value) 
     {
@@ -144,18 +144,14 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])){
     	$statement = $pdo->prepare("INSERT INTO tbl_order (
 						product_id,
 						product_name,
-						size, 
-						color,
 						quantity, 
 						unit_price, 
 						payment_id
 						) 
-						VALUES (?,?,?,?,?,?,?)");
+						VALUES (?,?,?,?,?)");
 		$sql = $statement->execute(array(
 						$arr_cart_p_id[$i],
-						$arr_cart_p_name[$i],
-						// $arr_cart_size_name[$i],
-						// $arr_cart_color_name[$i],
+						$arr_cart_p_name[$i],						
 						$arr_cart_p_qty[$i],
 						$arr_cart_p_current_price[$i],
 						$item_number
@@ -222,13 +218,10 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])){
 	// post back to PayPal system to validate
 	$header = "POST /cgi-bin/webscr HTTP/1.0\r\n";
 	$header .= "Content-Type: application/x-www-form-urlencoded\r\n";
-	$header .= "Content-Length: " . strlen($req) . "\r\n\r\n";
-	
-	$fp = fsockopen ('ssl://www.paypal.com', 443, $errno, $errstr, 30);
-	
+	$header .= "Content-Length: " . strlen($req) . "\r\n\r\n";	
+	$fp = fsockopen ('ssl://www.paypal.com', 443, $errno, $errstr, 30);	
 	if (!$fp) {
-		// HTTP ERROR
-		
+		// HTTP ERROR		
 	} else {
 		fputs($fp, $header . $req);
 		while (!feof($fp)) {
@@ -236,11 +229,9 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])){
 			if (strcmp($res, "VERIFIED") == 0) {
 				
 				// Used for debugging
-				// mail('user@domain.com', 'PAYPAL POST - VERIFIED RESPONSE', print_r($post, true));
-				
+				// mail('user@domain.com', 'PAYPAL POST - VERIFIED RESPONSE', print_r($post, true));	
 			
-			} else if (strcmp ($res, "INVALID") == 0) {
-			
+			} else if (strcmp ($res, "INVALID") == 0) {			
 
 				// PAYMENT INVALID & INVESTIGATE MANUALY!
 				// E-mail admin or alert user

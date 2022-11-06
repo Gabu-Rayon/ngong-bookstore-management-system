@@ -41,8 +41,6 @@ if(!isset($_SESSION['cart_p_id'])) {
                             <th><?php echo '#' ?></th>
                             <th><?php echo LANG_VALUE_8; ?></th>
                             <th><?php echo LANG_VALUE_47; ?></th>
-                            <!-- <th><?php //echo LANG_VALUE_157; ?></th> -->
-                            <!-- <th><?php //echo LANG_VALUE_158; ?></th> -->
                             <th><?php echo LANG_VALUE_159; ?></th>
                             <th><?php echo LANG_VALUE_55; ?></th>
                             <th class="text-right"><?php echo LANG_VALUE_82; ?></th>
@@ -56,35 +54,6 @@ if(!isset($_SESSION['cart_p_id'])) {
                             $i++;
                             $arr_cart_p_id[$i] = $value;
                         }
-
-                        $i=0;
-                        foreach($_SESSION['cart_size_id'] as $key => $value) 
-                        {
-                            $i++;
-                            $arr_cart_size_id[$i] = $value;
-                        }
-
-                        $i=0;
-                        foreach($_SESSION['cart_size_name'] as $key => $value) 
-                        {
-                            $i++;
-                            $arr_cart_size_name[$i] = $value;
-                        }
-
-                        $i=0;
-                        foreach($_SESSION['cart_color_id'] as $key => $value) 
-                        {
-                            $i++;
-                            $arr_cart_color_id[$i] = $value;
-                        }
-
-                        $i=0;
-                        foreach($_SESSION['cart_color_name'] as $key => $value) 
-                        {
-                            $i++;
-                            $arr_cart_color_name[$i] = $value;
-                        }
-
                         $i=0;
                         foreach($_SESSION['cart_p_qty'] as $key => $value) 
                         {
@@ -120,8 +89,6 @@ if(!isset($_SESSION['cart_p_id'])) {
                                 <img src="assets/uploads/<?php echo $arr_cart_p_featured_photo[$i]; ?>" alt="">
                             </td>
                             <td><?php echo $arr_cart_p_name[$i]; ?></td>
-                            <!-- <td><?php //echo $arr_cart_size_name[$i]; ?></td> -->
-                            <!-- <td><?php //echo $arr_cart_color_name[$i]; ?></td> -->
                             <td><?php echo 'ksh '; ?><?php echo $arr_cart_p_current_price[$i]; ?></td>
                             <td><?php echo $arr_cart_p_qty[$i]; ?></td>
                             <td class="text-right">
@@ -134,7 +101,7 @@ if(!isset($_SESSION['cart_p_id'])) {
                         </tr>
                         <?php endfor; ?>
                         <tr>
-                            <th colspan="7" class="total-text"><?php echo LANG_VALUE_81; ?></th>
+                            <th colspan="5" class="total-text"><?php echo LANG_VALUE_81; ?></th>
                             <th class="total-amount"><?php echo 'ksh '; ?><?php echo $table_total_price; ?></th>
                         </tr>
                         <?php
@@ -156,11 +123,11 @@ if(!isset($_SESSION['cart_p_id'])) {
                         }                        
                         ?>
                         <tr>
-                            <td colspan="7" class="total-text"><?php echo LANG_VALUE_84; ?></td>
+                            <td colspan="5" class="total-text"><?php echo LANG_VALUE_84; ?></td>
                             <td class="total-amount"><?php echo 'ksh '; ?><?php echo $shipping_cost; ?></td>
                         </tr>
                         <tr>
-                            <th colspan="7" class="total-text"><?php echo LANG_VALUE_82; ?></th>
+                            <th colspan="5" class="total-text"><?php echo LANG_VALUE_82; ?></th>
                             <th class="total-amount">
                                 <?php
                                 $final_total = $table_total_price+$shipping_cost;
@@ -170,8 +137,6 @@ if(!isset($_SESSION['cart_p_id'])) {
                         </tr>
                     </table>
                 </div>
-
-
 
                 <div class="billing-address">
                     <div class="row">

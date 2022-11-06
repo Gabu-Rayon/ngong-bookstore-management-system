@@ -161,36 +161,6 @@ if(isset($_POST['form1'])) {
         							$_REQUEST['id']
         						));
         }
-		
-
-        if(isset($_POST['size'])) {
-
-        	$statement = $pdo->prepare("DELETE FROM tbl_product_size WHERE p_id=?");
-        	$statement->execute(array($_REQUEST['id']));
-
-			foreach($_POST['size'] as $value) {
-				$statement = $pdo->prepare("INSERT INTO tbl_product_size (size_id,p_id) VALUES (?,?)");
-				$statement->execute(array($value,$_REQUEST['id']));
-			}
-		} else {
-			$statement = $pdo->prepare("DELETE FROM tbl_product_size WHERE p_id=?");
-        	$statement->execute(array($_REQUEST['id']));
-		}
-
-		if(isset($_POST['color'])) {
-			
-			$statement = $pdo->prepare("DELETE FROM tbl_product_color WHERE p_id=?");
-        	$statement->execute(array($_REQUEST['id']));
-
-			foreach($_POST['color'] as $value) {
-				$statement = $pdo->prepare("INSERT INTO tbl_product_color (color_id,p_id) VALUES (?,?)");
-				$statement->execute(array($value,$_REQUEST['id']));
-			}
-		} else {
-			$statement = $pdo->prepare("DELETE FROM tbl_product_color WHERE p_id=?");
-        	$statement->execute(array($_REQUEST['id']));
-		}
-	
     	$success_message = 'Product is updated successfully.';
     }
 }
@@ -255,20 +225,6 @@ foreach ($result as $row) {
 	$ecat_name = $row['ecat_name'];
     $mcat_id = $row['mcat_id'];
     $tcat_id = $row['tcat_id'];
-}
-
-$statement = $pdo->prepare("SELECT * FROM tbl_product_size WHERE p_id=?");
-$statement->execute(array($_REQUEST['id']));
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
-foreach ($result as $row) {
-	$size_id[] = $row['size_id'];
-}
-
-$statement = $pdo->prepare("SELECT * FROM tbl_product_color WHERE p_id=?");
-$statement->execute(array($_REQUEST['id']));
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
-foreach ($result as $row) {
-	$color_id[] = $row['color_id'];
 }
 ?>
 
@@ -384,58 +340,6 @@ foreach ($result as $row) {
                             <label for="" class="col-sm-3 control-label">Quantity <span>*</span></label>
                             <div class="col-sm-4">
                                 <input type="text" name="p_qty" class="form-control" value="<?php echo $p_qty; ?>">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Select Size</label>
-                            <div class="col-sm-4">
-                                <select name="size[]" class="form-control select2" multiple="multiple">
-                                    <?php
-									$is_select = '';
-									$statement = $pdo->prepare("SELECT * FROM tbl_size ORDER BY size_id ASC");
-									$statement->execute();
-									$result = $statement->fetchAll(PDO::FETCH_ASSOC);			
-									foreach ($result as $row) {
-										if(isset($size_id)) {
-											if(in_array($row['size_id'],$size_id)) {
-												$is_select = 'selected';
-											} else {
-												$is_select = '';
-											}
-										}
-										?>
-                                    <option value="<?php echo $row['size_id']; ?>" <?php echo $is_select; ?>>
-                                        <?php echo $row['size_name']; ?></option>
-                                    <?php
-									}
-									?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Select Color</label>
-                            <div class="col-sm-4">
-                                <select name="color[]" class="form-control select2" multiple="multiple">
-                                    <?php
-									$is_select = '';
-									$statement = $pdo->prepare("SELECT * FROM tbl_color ORDER BY color_id ASC");
-									$statement->execute();
-									$result = $statement->fetchAll(PDO::FETCH_ASSOC);			
-									foreach ($result as $row) {
-										if(isset($color_id)) {
-											if(in_array($row['color_id'],$color_id)) {
-												$is_select = 'selected';
-											} else {
-												$is_select = '';
-											}
-										}
-										?>
-                                    <option value="<?php echo $row['color_id']; ?>" <?php echo $is_select; ?>>
-                                        <?php echo $row['color_name']; ?></option>
-                                    <?php
-									}
-									?>
-                                </select>
                             </div>
                         </div>
                         <div class="form-group">

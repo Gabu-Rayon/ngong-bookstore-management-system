@@ -7,9 +7,6 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 foreach ($result as $row) {
     $banner_cart = $row['banner_cart'];
 }
-?>
-
-<?php
 $error_message = '';
 if(isset($_POST['form1'])) {
 
@@ -56,7 +53,6 @@ if(isset($_POST['form1'])) {
     }
     $error_message .= '\nOther items quantity are updated successfully!';
     ?>
-
 <?php if($allow_update == 0): ?>
 <script>
 alert('<?php echo $error_message; ?>');
@@ -95,8 +91,6 @@ alert('All Items Quantity Update is Successful!');
                                 <th><?php echo '#' ?></th>
                                 <th><?php echo LANG_VALUE_8; ?></th>
                                 <th><?php echo LANG_VALUE_47; ?></th>
-                                <!-- <th><?php //echo LANG_VALUE_157; ?></th> -->
-                                <!-- <th><?php //echo LANG_VALUE_158; ?></th> -->
                                 <th><?php echo LANG_VALUE_159; ?></th>
                                 <th><?php echo LANG_VALUE_55; ?></th>
                                 <th class="text-right"><?php echo LANG_VALUE_82; ?></th>
@@ -111,35 +105,6 @@ alert('All Items Quantity Update is Successful!');
                             $i++;
                             $arr_cart_p_id[$i] = $value;
                         }
-
-                        $i=0;
-                        foreach($_SESSION['cart_size_id'] as $key => $value) 
-                        {
-                            $i++;
-                            $arr_cart_size_id[$i] = $value;
-                        }
-
-                        $i=0;
-                        foreach($_SESSION['cart_size_name'] as $key => $value) 
-                        {
-                            $i++;
-                            $arr_cart_size_name[$i] = $value;
-                        }
-
-                        $i=0;
-                        foreach($_SESSION['cart_color_id'] as $key => $value) 
-                        {
-                            $i++;
-                            $arr_cart_color_id[$i] = $value;
-                        }
-
-                        $i=0;
-                        foreach($_SESSION['cart_color_name'] as $key => $value) 
-                        {
-                            $i++;
-                            $arr_cart_color_name[$i] = $value;
-                        }
-
                         $i=0;
                         foreach($_SESSION['cart_p_qty'] as $key => $value) 
                         {
@@ -175,8 +140,6 @@ alert('All Items Quantity Update is Successful!');
                                     <img src="assets/uploads/<?php echo $arr_cart_p_featured_photo[$i]; ?>" alt="">
                                 </td>
                                 <td><?php echo $arr_cart_p_name[$i]; ?></td>
-                                <!-- <td><?php //echo $arr_cart_size_name[$i]; ?></td> -->
-                                <!-- <td><?php //echo $arr_cart_color_name[$i]; ?></td> -->
                                 <td><?php echo  'ksh ';  ?><?php echo $arr_cart_p_current_price[$i]; ?></td>
                                 <td>
                                     <input type="hidden" name="product_id[]" value="<?php echo $arr_cart_p_id[$i]; ?>">
@@ -195,13 +158,13 @@ alert('All Items Quantity Update is Successful!');
                                 </td>
                                 <td class="text-center">
                                     <a onclick="return confirmDelete();"
-                                        href="cart-item-delete.php?id=<?php echo $arr_cart_p_id[$i]; ?>&size=<?php echo $arr_cart_size_id[$i]; ?>&color=<?php echo $arr_cart_color_id[$i]; ?>"
+                                        href="cart-item-delete.php?id=<?php echo $arr_cart_p_id[$i]; ?>"
                                         class="trash"><i class="fa fa-trash" style="color:red;"></i></a>
                                 </td>
                             </tr>
                             <?php endfor; ?>
                             <tr>
-                                <th colspan="7" class="total-text">Total</th>
+                                <th colspan="5" class="total-text">Total</th>
                                 <th class="total-amount"><?php echo 'ksh '; ?><?php echo $table_total_price; ?></th>
                                 <th></th>
                             </tr>
@@ -218,13 +181,8 @@ alert('All Items Quantity Update is Successful!');
                     </div>
                 </form>
                 <?php endif; ?>
-
-
-
             </div>
         </div>
     </div>
 </div>
-
-
 <?php require_once('footer.php'); ?>

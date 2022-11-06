@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2022 at 12:17 PM
+-- Generation Time: Nov 06, 2022 at 02:51 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -24,59 +24,13 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_color`
---
-
-CREATE TABLE `tbl_color` (
-  `color_id` int(11) NOT NULL,
-  `color_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_color`
---
-
-INSERT INTO `tbl_color` (`color_id`, `color_name`) VALUES
-(1, 'Red'),
-(2, 'Black'),
-(3, 'Blue'),
-(4, 'Yellow'),
-(5, 'Green'),
-(6, 'White'),
-(7, 'Orange'),
-(8, 'Brown'),
-(9, 'Tan'),
-(10, 'Pink'),
-(11, 'Mixed'),
-(12, 'Lightblue'),
-(13, 'Violet'),
-(14, 'Light Purple'),
-(15, 'Salmon'),
-(16, 'Gold'),
-(17, 'Gray'),
-(18, 'Ash'),
-(19, 'Maroon'),
-(20, 'Silver'),
-(21, 'Dark Clay'),
-(22, 'Cognac'),
-(23, 'Coffee'),
-(24, 'Charcoal'),
-(25, 'Navy'),
-(26, 'Fuchsia'),
-(27, 'Olive'),
-(28, 'Burgundy'),
-(29, 'Midnight Blue');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_counties`
 --
 
 CREATE TABLE `tbl_counties` (
   `county_id` int(11) NOT NULL,
-  `county_name` varchar(100) NOT NULL DEFAULT ''
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `county_name` varchar(100) COLLATE utf8mb4_bin NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_counties`
@@ -139,44 +93,45 @@ INSERT INTO `tbl_counties` (`county_id`, `county_name`) VALUES
 
 CREATE TABLE `tbl_customer` (
   `cust_id` int(11) NOT NULL,
-  `cust_name` varchar(100) NOT NULL,
-  `cust_cname` varchar(100) NOT NULL,
-  `cust_email` varchar(100) NOT NULL,
-  `cust_phone` varchar(50) NOT NULL,
+  `cust_name` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `cust_cname` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `cust_email` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `cust_phone` varchar(50) COLLATE utf8mb4_bin NOT NULL,
   `cust_county` int(11) NOT NULL,
-  `cust_address` text NOT NULL,
-  `cust_town` varchar(100) NOT NULL,
-  `cust_location` varchar(100) NOT NULL,
-  `cust_zip` varchar(30) NOT NULL,
-  `cust_b_name` varchar(100) NOT NULL,
-  `cust_b_cname` varchar(100) NOT NULL,
-  `cust_b_phone` varchar(50) NOT NULL,
+  `cust_address` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `cust_town` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `cust_location` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `cust_zip` varchar(30) COLLATE utf8mb4_bin NOT NULL,
+  `cust_b_name` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `cust_b_cname` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `cust_b_phone` varchar(50) COLLATE utf8mb4_bin NOT NULL,
   `cust_b_county` int(11) NOT NULL,
-  `cust_b_address` text NOT NULL,
-  `cust_b_town` varchar(100) NOT NULL,
-  `cust_b_location` varchar(100) NOT NULL,
-  `cust_b_zip` varchar(30) NOT NULL,
-  `cust_s_name` varchar(100) NOT NULL,
-  `cust_s_cname` varchar(100) NOT NULL,
-  `cust_s_phone` varchar(50) NOT NULL,
+  `cust_b_address` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `cust_b_town` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `cust_b_location` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `cust_b_zip` varchar(30) COLLATE utf8mb4_bin NOT NULL,
+  `cust_s_name` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `cust_s_cname` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `cust_s_phone` varchar(50) COLLATE utf8mb4_bin NOT NULL,
   `cust_s_county` int(11) NOT NULL,
-  `cust_s_address` text NOT NULL,
-  `cust_s_town` varchar(100) NOT NULL,
-  `cust_s_location` varchar(100) NOT NULL,
-  `cust_s_zip` varchar(30) NOT NULL,
-  `cust_password` varchar(100) NOT NULL,
-  `cust_token` varchar(255) NOT NULL,
-  `cust_datetime` varchar(100) NOT NULL,
-  `cust_timestamp` varchar(100) NOT NULL,
+  `cust_s_address` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `cust_s_town` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `cust_s_location` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `cust_s_zip` varchar(30) COLLATE utf8mb4_bin NOT NULL,
+  `cust_password` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `cust_token` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `cust_datetime` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `cust_timestamp` varchar(100) COLLATE utf8mb4_bin NOT NULL,
   `cust_status` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_customer`
 --
 
 INSERT INTO `tbl_customer` (`cust_id`, `cust_name`, `cust_cname`, `cust_email`, `cust_phone`, `cust_county`, `cust_address`, `cust_town`, `cust_location`, `cust_zip`, `cust_b_name`, `cust_b_cname`, `cust_b_phone`, `cust_b_county`, `cust_b_address`, `cust_b_town`, `cust_b_location`, `cust_b_zip`, `cust_s_name`, `cust_s_cname`, `cust_s_phone`, `cust_s_county`, `cust_s_address`, `cust_s_town`, `cust_s_location`, `cust_s_zip`, `cust_password`, `cust_token`, `cust_datetime`, `cust_timestamp`, `cust_status`) VALUES
-(11, 'Sylvia', 'wellMart', 'sylviatitoo123@gmail.com', '0712450853', 246, '01000 Parkvanillas', 'cbd', 'Likoni', '01002000', 'Sylvia Tittoo', 'wellMart', '0712450853', 246, '01000 Parkvanillas', 'Mombasa', 'Likoni', '01002000', 'Sylvia Tittoo', 'wellMart', '0712450853', 246, '01000 Parkvanillas', 'Mombasa', 'Likoni', '01002000', '827ccb0eea8a706c4c34a16891f84e7b', '7cf9040952a92b40199698572c1aa352', '2022-09-11 01:47:27', '1662886047', 1);
+(15, 'Ibrahim', 'James', 'jamesibrahim23@gmail.com', '0712121212', 246, 'Saibaon', 'Old Town', 'Jabaino', '01234', 'Ibrahim', 'James', '0712121212', 275, 'Saibaon', 'Old Town', 'Sabion', '01234', 'Ibrahim', 'James', '0712121212', 275, 'Saibaon', 'Old Town', 'Sabion', '01234', '827ccb0eea8a706c4c34a16891f84e7b', '0e7657c4771523af478645055d0e12aa', '2022-10-29 05:27:33', '1667046453', 1),
+(16, 'Ibracov', 'James', 'jamesibracov23@gmail.com', '0723232323', 246, 'Saibaon', 'Old Town', 'Jabaino', '01234', '', '', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '827ccb0eea8a706c4c34a16891f84e7b', 'e35488173c8156b5458f69d207022191', '2022-10-29 05:42:04', '1667047324', 1);
 
 -- --------------------------------------------------------
 
@@ -186,11 +141,11 @@ INSERT INTO `tbl_customer` (`cust_id`, `cust_name`, `cust_cname`, `cust_email`, 
 
 CREATE TABLE `tbl_customer_message` (
   `customer_message_id` int(11) NOT NULL,
-  `subject` varchar(255) NOT NULL,
-  `message` text NOT NULL,
-  `order_detail` text NOT NULL,
+  `subject` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `message` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `order_detail` mediumtext COLLATE utf8mb4_bin NOT NULL,
   `cust_id` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -200,9 +155,9 @@ CREATE TABLE `tbl_customer_message` (
 
 CREATE TABLE `tbl_end_category` (
   `ecat_id` int(11) NOT NULL,
-  `ecat_name` varchar(255) NOT NULL,
+  `ecat_name` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `mcat_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_end_category`
@@ -249,9 +204,9 @@ INSERT INTO `tbl_end_category` (`ecat_id`, `ecat_name`, `mcat_id`) VALUES
 
 CREATE TABLE `tbl_faq` (
   `faq_id` int(11) NOT NULL,
-  `faq_title` varchar(255) NOT NULL,
-  `faq_content` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `faq_title` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `faq_content` mediumtext COLLATE utf8mb4_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_faq`
@@ -272,9 +227,9 @@ INSERT INTO `tbl_faq` (`faq_id`, `faq_title`, `faq_content`) VALUES
 
 CREATE TABLE `tbl_language` (
   `lang_id` int(11) NOT NULL,
-  `lang_name` varchar(255) NOT NULL,
-  `lang_value` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `lang_name` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `lang_value` mediumtext COLLATE utf8mb4_bin NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_language`
@@ -382,8 +337,8 @@ INSERT INTO `tbl_language` (`lang_id`, `lang_name`, `lang_value`) VALUES
 (99, 'Update Password', 'Update Password'),
 (100, 'New Password', 'New Password'),
 (101, 'Retype New Password', 'Retype New Password'),
-(102, 'Full Name', 'Full Name'),
-(103, 'Company Name', 'Company Name'),
+(102, 'First Name', 'First Name'),
+(103, 'Last Name*', 'Last Name*'),
 (104, 'Phone Number', 'Phone Number'),
 (105, 'Address', 'Address'),
 (106, 'County', 'County'),
@@ -453,9 +408,9 @@ INSERT INTO `tbl_language` (`lang_id`, `lang_name`, `lang_value`) VALUES
 
 CREATE TABLE `tbl_mid_category` (
   `mcat_id` int(11) NOT NULL,
-  `mcat_name` varchar(255) NOT NULL,
+  `mcat_name` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `tcat_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_mid_category`
@@ -511,20 +466,19 @@ INSERT INTO `tbl_mid_category` (`mcat_id`, `mcat_name`, `tcat_id`) VALUES
 CREATE TABLE `tbl_order` (
   `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `product_name` varchar(255) NOT NULL,
-  `size` varchar(100) NOT NULL,
-  `color` varchar(100) NOT NULL,
-  `quantity` varchar(50) NOT NULL,
-  `unit_price` varchar(50) NOT NULL,
-  `payment_id` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `product_name` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `quantity` varchar(50) COLLATE utf8mb4_bin NOT NULL,
+  `unit_price` varchar(50) COLLATE utf8mb4_bin NOT NULL,
+  `payment_id` varchar(255) COLLATE utf8mb4_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_order`
 --
 
-INSERT INTO `tbl_order` (`id`, `product_id`, `product_name`, `size`, `color`, `quantity`, `unit_price`, `payment_id`) VALUES
-(6, 129, 'In the Kitchen with Rosie', '', '', '2', '300', '1662890423');
+INSERT INTO `tbl_order` (`id`, `product_id`, `product_name`, `quantity`, `unit_price`, `payment_id`) VALUES
+(9, 125, 'Soul\'s Perfection : Journey of the Soul', '2', '370', '1667128890'),
+(10, 105, 'When Husband Wife Become Mom & : What Every Marriage Needs', '1', '700', '1667130200');
 
 -- --------------------------------------------------------
 
@@ -534,38 +488,38 @@ INSERT INTO `tbl_order` (`id`, `product_id`, `product_name`, `size`, `color`, `q
 
 CREATE TABLE `tbl_page` (
   `id` int(11) NOT NULL,
-  `about_title` varchar(255) NOT NULL,
-  `about_content` text NOT NULL,
-  `about_banner` varchar(255) NOT NULL,
-  `about_meta_title` varchar(255) NOT NULL,
-  `about_meta_keyword` text NOT NULL,
-  `about_meta_description` text NOT NULL,
-  `faq_title` varchar(255) NOT NULL,
-  `faq_banner` varchar(255) NOT NULL,
-  `faq_meta_title` varchar(255) NOT NULL,
-  `faq_meta_keyword` text NOT NULL,
-  `faq_meta_description` text NOT NULL,
-  `blog_title` varchar(255) NOT NULL,
-  `blog_banner` varchar(255) NOT NULL,
-  `blog_meta_title` varchar(255) NOT NULL,
-  `blog_meta_keyword` text NOT NULL,
-  `blog_meta_description` text NOT NULL,
-  `contact_title` varchar(255) NOT NULL,
-  `contact_banner` varchar(255) NOT NULL,
-  `contact_meta_title` varchar(255) NOT NULL,
-  `contact_meta_keyword` text NOT NULL,
-  `contact_meta_description` text NOT NULL,
-  `pgallery_title` varchar(255) NOT NULL,
-  `pgallery_banner` varchar(255) NOT NULL,
-  `pgallery_meta_title` varchar(255) NOT NULL,
-  `pgallery_meta_keyword` text NOT NULL,
-  `pgallery_meta_description` text NOT NULL,
-  `vgallery_title` varchar(255) NOT NULL,
-  `vgallery_banner` varchar(255) NOT NULL,
-  `vgallery_meta_title` varchar(255) NOT NULL,
-  `vgallery_meta_keyword` text NOT NULL,
-  `vgallery_meta_description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `about_title` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `about_content` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `about_banner` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `about_meta_title` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `about_meta_keyword` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `about_meta_description` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `faq_title` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `faq_banner` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `faq_meta_title` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `faq_meta_keyword` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `faq_meta_description` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `blog_title` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `blog_banner` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `blog_meta_title` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `blog_meta_keyword` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `blog_meta_description` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `contact_title` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `contact_banner` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `contact_meta_title` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `contact_meta_keyword` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `contact_meta_description` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `pgallery_title` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `pgallery_banner` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `pgallery_meta_title` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `pgallery_meta_keyword` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `pgallery_meta_description` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `vgallery_title` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `vgallery_banner` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `vgallery_meta_title` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `vgallery_meta_keyword` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `vgallery_meta_description` mediumtext COLLATE utf8mb4_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_page`
@@ -583,21 +537,21 @@ INSERT INTO `tbl_page` (`id`, `about_title`, `about_content`, `about_banner`, `a
 CREATE TABLE `tbl_payment` (
   `id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
-  `customer_name` varchar(255) NOT NULL,
-  `customer_email` varchar(255) NOT NULL,
-  `payment_date` varchar(50) NOT NULL,
-  `txnid` varchar(255) NOT NULL,
+  `customer_name` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `customer_email` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `payment_date` varchar(50) COLLATE utf8mb4_bin NOT NULL,
+  `txnid` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `paid_amount` int(11) NOT NULL,
-  `card_number` varchar(50) NOT NULL,
-  `card_cvv` varchar(10) NOT NULL,
-  `card_month` varchar(10) NOT NULL,
-  `card_year` varchar(10) NOT NULL,
-  `bank_transaction_info` text NOT NULL,
-  `payment_method` varchar(20) NOT NULL,
-  `payment_status` varchar(25) NOT NULL,
-  `shipping_status` varchar(20) NOT NULL,
-  `payment_id` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `card_number` varchar(50) COLLATE utf8mb4_bin NOT NULL,
+  `card_cvv` varchar(10) COLLATE utf8mb4_bin NOT NULL,
+  `card_month` varchar(10) COLLATE utf8mb4_bin NOT NULL,
+  `card_year` varchar(10) COLLATE utf8mb4_bin NOT NULL,
+  `bank_transaction_info` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `payment_method` varchar(20) COLLATE utf8mb4_bin NOT NULL,
+  `payment_status` varchar(25) COLLATE utf8mb4_bin NOT NULL,
+  `shipping_status` varchar(20) COLLATE utf8mb4_bin NOT NULL,
+  `payment_id` varchar(255) COLLATE utf8mb4_bin NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_payment`
@@ -606,10 +560,15 @@ CREATE TABLE `tbl_payment` (
 INSERT INTO `tbl_payment` (`id`, `customer_id`, `customer_name`, `customer_email`, `payment_date`, `txnid`, `paid_amount`, `card_number`, `card_cvv`, `card_month`, `card_year`, `bank_transaction_info`, `payment_method`, `payment_status`, `shipping_status`, `payment_id`) VALUES
 (51, 2, 'Chad N. Carney', 'chad@mail.com', '2022-03-18 22:48:49', '', 19, '', '', '', '', 'Transaction Id: CA01010158967840\r\nTransaction Date: 3/19/2022\r\nBank: WestView Bank, CA Branch\r\nSender A/C: 102458965WV', 'Bank Deposit', 'Completed', 'Completed', '1647629329'),
 (52, 3, 'Jean Collins', 'jean@mail.com', '2022-03-20 10:49:53', '', 91, '', '', '', '', '', 'PayPal', 'Completed', 'Completed', '1647798593'),
-(56, 11, 'Sylvia', 'sylviatitoo123@gmail.com', '2022-09-11 03:00:23', '', 1000, '', '', '', '', '', 'PayPal', 'Pending', 'Pending', '1662890423'),
-(57, 11, 'Sylvia', 'sylviatitoo123@gmail.com', '2022-09-11 03:03:18', '', 1000, '', '', '', '', '', 'PayPal', 'Pending', 'Pending', '1662890598'),
 (54, 6, 'August F. Freels', 'august@mail.com', '2022-03-20 10:59:34', '', 70, '', '', '', '', 'Transaction Id: CA01101198945600\nTransaction Date: 3/20/2022 \nBank: WestView Bank, CA Branch \nSender A/C: 1100047860WV', 'Bank Deposit', 'Completed', 'Pending', '1647799174'),
-(55, 10, 'Will Williams', 'williams@mail.com', '2022-03-20 11:28:22', '', 149, '', '', '', '', 'Transaction Id: CA01003177945009\r\nTransaction Date: 3/20/2022 \r\nBank: WestView Bank, CA Branch \r\nSender A/C: NQ1011050160WV', 'Bank Deposit', 'Completed', 'Completed', '1647800902');
+(55, 10, 'Will Williams', 'williams@mail.com', '2022-03-20 11:28:22', '', 149, '', '', '', '', 'Transaction Id: CA01003177945009\r\nTransaction Date: 3/20/2022 \r\nBank: WestView Bank, CA Branch \r\nSender A/C: NQ1011050160WV', 'Bank Deposit', 'Completed', 'Completed', '1647800902'),
+(60, 15, 'Ibrahim', 'jamesibrahim23@gmail.com', '2022-10-30 04:21:30', '', 840, '', '', '', '', '', 'PayPal', 'Pending', 'Pending', '1667128890'),
+(61, 15, 'Ibrahim', 'jamesibrahim23@gmail.com', '2022-10-30 04:26:06', '', 840, '', '', '', '', '', 'PayPal', 'Pending', 'Pending', '1667129166'),
+(62, 15, 'Ibrahim', 'jamesibrahim23@gmail.com', '2022-10-30 04:31:27', '', 840, '', '', '', '', '', 'PayPal', 'Pending', 'Pending', '1667129487'),
+(63, 15, 'Ibrahim', 'jamesibrahim23@gmail.com', '2022-10-30 04:35:24', '', 840, '', '', '', '', '', 'PayPal', 'Pending', 'Pending', '1667129724'),
+(64, 15, 'Ibrahim', 'jamesibrahim23@gmail.com', '2022-10-30 04:37:12', '', 800, '', '', '', '', '', 'PayPal', 'Pending', 'Pending', '1667129832'),
+(65, 15, 'Ibrahim', 'jamesibrahim23@gmail.com', '2022-10-30 04:39:03', '', 800, '', '', '', '', '', 'PayPal', 'Pending', 'Pending', '1667129943'),
+(66, 15, 'Ibrahim', 'jamesibrahim23@gmail.com', '2022-10-30 04:43:20', '', 800, '', '', '', '', '', 'PayPal', 'Pending', 'Pending', '1667130200');
 
 -- --------------------------------------------------------
 
@@ -619,9 +578,9 @@ INSERT INTO `tbl_payment` (`id`, `customer_id`, `customer_name`, `customer_email
 
 CREATE TABLE `tbl_photo` (
   `id` int(11) NOT NULL,
-  `caption` varchar(255) NOT NULL,
-  `photo` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `caption` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `photo` varchar(255) COLLATE utf8mb4_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_photo`
@@ -643,17 +602,17 @@ INSERT INTO `tbl_photo` (`id`, `caption`, `photo`) VALUES
 
 CREATE TABLE `tbl_post` (
   `post_id` int(11) NOT NULL,
-  `post_title` varchar(255) NOT NULL,
-  `post_slug` varchar(255) NOT NULL,
-  `post_content` text NOT NULL,
-  `post_date` varchar(255) NOT NULL,
-  `photo` varchar(255) NOT NULL,
+  `post_title` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `post_slug` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `post_content` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `post_date` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `photo` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `category_id` int(11) NOT NULL,
   `total_view` int(11) NOT NULL,
-  `meta_title` varchar(255) NOT NULL,
-  `meta_keyword` text NOT NULL,
-  `meta_description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `meta_title` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `meta_keyword` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `meta_description` mediumtext COLLATE utf8mb4_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_post`
@@ -680,39 +639,39 @@ INSERT INTO `tbl_post` (`post_id`, `post_title`, `post_slug`, `post_content`, `p
 
 CREATE TABLE `tbl_product` (
   `p_id` int(11) NOT NULL,
-  `p_name` varchar(255) NOT NULL,
-  `p_old_price` varchar(10) NOT NULL,
-  `p_current_price` varchar(10) NOT NULL,
+  `p_name` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `p_old_price` varchar(10) COLLATE utf8mb4_bin NOT NULL,
+  `p_current_price` varchar(10) COLLATE utf8mb4_bin NOT NULL,
   `p_qty` int(10) NOT NULL,
-  `p_featured_photo` varchar(255) NOT NULL,
-  `p_description` text NOT NULL,
-  `p_short_description` text NOT NULL,
-  `p_feature` text NOT NULL,
-  `p_condition` text NOT NULL,
-  `p_return_policy` text NOT NULL,
+  `p_featured_photo` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `p_description` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `p_short_description` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `p_feature` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `p_condition` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `p_return_policy` mediumtext COLLATE utf8mb4_bin NOT NULL,
   `p_total_view` int(11) NOT NULL,
   `p_is_featured` int(1) NOT NULL,
   `p_is_active` int(1) NOT NULL,
   `ecat_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_product`
 --
 
 INSERT INTO `tbl_product` (`p_id`, `p_name`, `p_old_price`, `p_current_price`, `p_qty`, `p_featured_photo`, `p_description`, `p_short_description`, `p_feature`, `p_condition`, `p_return_policy`, `p_total_view`, `p_is_featured`, `p_is_active`, `ecat_id`) VALUES
-(92, ' Gregory\'s Sermon Synopses', '300', '250', 29, 'product-featured-902.jpg', '<p><span style=\"color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">More than simple outlines but less than full messages, these 200 sermon synopses give ministers a starting point without stifling their individual styles and initiative.</span><br></p>', '<p>Paperback English\r\nBy (author)  Joel C. Gregory\r\n<br>\r\nBook details\r\nFormat Paperback | 288 pages\r\nLanguage English\r\nISBN10 0805420053\r\nISBN13 9780805420050\r\n</p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \" amazon=\"\" ember\",=\"\" arial,=\"\" sans-serif;=\"\" font-size:=\"\" 14px;\"=\"\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\"><h2 style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">About Joel C. Gregory</h2></span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers aÂ </span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Â in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 13, 0, 1, 75),
+(92, ' Gregory\'s Sermon Synopses', '300', '250', 29, 'product-featured-902.jpg', '<p><span style=\"color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">More than simple outlines but less than full messages, these 200 sermon synopses give ministers a starting point without stifling their individual styles and initiative.</span><br></p>', '<p>Paperback English\r\nBy (author)  Joel C. Gregory\r\n<br>\r\nBook details\r\nFormat Paperback | 288 pages\r\nLanguage English\r\nISBN10 0805420053\r\nISBN13 9780805420050\r\n</p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \" amazon=\"\" ember\",=\"\" arial,=\"\" sans-serif;=\"\" font-size:=\"\" 14px;\"=\"\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\"><h2 style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">About Joel C. Gregory</h2></span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers aÂ </span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Â in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 16, 0, 1, 75),
 (95, 'Quest', '329', '200', 52, 'product-featured-905.jpg', '<p><span style=\"color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">This book is about a 21st Century mythic adventure and spiritual odyssey. A real life Dan Brown novel where science meets reality, the mystical meets the mundane and the esoteric or hidden is made manifest. More mind bending than the Matrix movie and as strange as any Philip K. Dick take. This is a true story of one man\'s quest to understand the nature of Mind, Brain and Consciousness, during the course of which he discovers the nature of the universe and the divine. It is contemporary mythology involving the quest for the modern Holy Grail of Artificial Intelligence (AI), which would lead to the Holy Grail of the common understanding that is found at the heart of all the world religions, i.e. Gnosticism in Christianity, Kabbalah in Judaism, Sufism in Islam, Tantra and Advaita Vedanta in Hinduism, Vajrayana Buddhism and Taoism; also the secret behind Freemasonry, Rosicrucianism, the Templars and the Ancient Mysteries of Greece of Egypt.</span><br></p>', 'Paperback English\r\nBy (author)  Wai H. Tsang\r\nBook details\r\nFormat Paperback | 280 pages\r\nLanguage English\r\nISBN10 1326617567\r\nISBN13 9781326617561', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \" amazon=\"\" ember\",=\"\" arial,=\"\" sans-serif;=\"\" font-size:=\"\" 14px;\"=\"\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><h2 style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">About Wai H. Tsang</h2></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers aÂ </span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Â in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 12, 1, 1, 79),
-(99, 'Smoke in the Wind', '512', '400', 46, 'product-featured-99.png', '<p style=\"margin-bottom: 0px; padding: 1rem 0px; font-size: 14px; line-height: 21px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">In seventh-century Ireland, then the light of reason in a darkening world, Fidelma - a religious, advocate of the Brehon courts, and sister to the King of Muman - is an increasingly notable figure often called upon for her wisdom, legal knowledge, and devotion to the truth. While journeying with companion Eadulf to visit the new Archbishop of Canterbury, their ship is blown badly off course and the pair find themselves on the coast of modern Wales in the kingdom of Dyfed.</p><p style=\"margin-bottom: 0px; padding: 1rem 0px; font-size: 14px; line-height: 21px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">There, hosted by the king himself, Fidelma is presented with her knottiest problem yet - an entire monastic community from the nearby countryside has disappeared without a trace. While investigating this seeming impossibility, Fidelma and Eadulf are confronted with the apparently unrelated and shocking murder of a local girl - a death marked by more tragedy and consequence than anyone could have imagined.</p><p style=\"margin-bottom: 0px; padding: 1rem 0px; font-size: 14px; line-height: 21px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">Peter Tremayne\'s novels featuring Fidelma of Cashel have won critical praise from around the world and have enjoyed an ever-increasing readership. Smoke in the Wind is a richly imagined, wonderfully written entry in what is understandably one of the most popular historical series today.</p><div><br></div>', '<p style=\"padding: 0px; margin-top: 0px; text-rendering: optimizelegibility; margin-bottom: 0px !important; line-height: 32px !important;\"><span id=\"productTitle\" class=\"a-size-large product-title-word-break\" style=\"text-rendering: optimizelegibility; word-break: break-word; line-height: 32px !important; font-family: Roboto;\">Hardcover English\r\nBy (author)  Peter Tremayne\r\n\r\nBook details\r\nFormat Hardcover | 267 pages\r\nLanguage English\r\nISBN10 0312287801\r\nISBN13 9780312287801</span></p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \" amazon=\"\" ember\",=\"\" arial,=\"\" sans-serif;=\"\" font-size:=\"\" 14px;\"=\"\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><h2 style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">About Peter Tremayne</h2><div class=\"block text-block trunc\" data-height=\"100\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px; overflow-wrap: break-word;\"><p style=\"margin-bottom: 0px; padding: 1rem 0px; font-size: 1.4rem; line-height: 21px;\">Peter Berresford Ellis (born 10 March 1943) is a historian, literary biographer, and novelist who has published over 90 books to date either under his own name or his pseudonyms Peter Tremayne and Peter MacAlan. He has also published 95 short stories. His non-fiction books, articles and academic papers have made him acknowledged as an authority on Celtic history and culture. As Peter Tremayne, he is the author of the international bestselling Sister Fidelma mystery series. His work has appeared in 25 languages.</p></div></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers a </span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\"> in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 0, 0, 1, 54),
+(99, 'Smoke in the Wind', '512', '400', 46, 'product-featured-99.png', '<p style=\"margin-bottom: 0px; padding: 1rem 0px; font-size: 14px; line-height: 21px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">In seventh-century Ireland, then the light of reason in a darkening world, Fidelma - a religious, advocate of the Brehon courts, and sister to the King of Muman - is an increasingly notable figure often called upon for her wisdom, legal knowledge, and devotion to the truth. While journeying with companion Eadulf to visit the new Archbishop of Canterbury, their ship is blown badly off course and the pair find themselves on the coast of modern Wales in the kingdom of Dyfed.</p><p style=\"margin-bottom: 0px; padding: 1rem 0px; font-size: 14px; line-height: 21px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">There, hosted by the king himself, Fidelma is presented with her knottiest problem yet - an entire monastic community from the nearby countryside has disappeared without a trace. While investigating this seeming impossibility, Fidelma and Eadulf are confronted with the apparently unrelated and shocking murder of a local girl - a death marked by more tragedy and consequence than anyone could have imagined.</p><p style=\"margin-bottom: 0px; padding: 1rem 0px; font-size: 14px; line-height: 21px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">Peter Tremayne\'s novels featuring Fidelma of Cashel have won critical praise from around the world and have enjoyed an ever-increasing readership. Smoke in the Wind is a richly imagined, wonderfully written entry in what is understandably one of the most popular historical series today.</p><div><br></div>', '<p style=\"padding: 0px; margin-top: 0px; text-rendering: optimizelegibility; margin-bottom: 0px !important; line-height: 32px !important;\"><span id=\"productTitle\" class=\"a-size-large product-title-word-break\" style=\"text-rendering: optimizelegibility; word-break: break-word; line-height: 32px !important; font-family: Roboto;\">Hardcover English\r\nBy (author)  Peter Tremayne\r\n\r\nBook details\r\nFormat Hardcover | 267 pages\r\nLanguage English\r\nISBN10 0312287801\r\nISBN13 9780312287801</span></p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \" amazon=\"\" ember\",=\"\" arial,=\"\" sans-serif;=\"\" font-size:=\"\" 14px;\"=\"\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><h2 style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">About Peter Tremayne</h2><div class=\"block text-block trunc\" data-height=\"100\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px; overflow-wrap: break-word;\"><p style=\"margin-bottom: 0px; padding: 1rem 0px; font-size: 1.4rem; line-height: 21px;\">Peter Berresford Ellis (born 10 March 1943) is a historian, literary biographer, and novelist who has published over 90 books to date either under his own name or his pseudonyms Peter Tremayne and Peter MacAlan. He has also published 95 short stories. His non-fiction books, articles and academic papers have made him acknowledged as an authority on Celtic history and culture. As Peter Tremayne, he is the author of the international bestselling Sister Fidelma mystery series. His work has appeared in 25 languages.</p></div></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers a </span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\"> in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 3, 0, 1, 54),
 (101, 'Thinking in Pictures: My Life with Autism', '790', '440', 289, 'product-featured-103.jpg', '<h5 class=\"a-spacing-mini a-color-secondary\" style=\"padding: 0px; margin-top: 0px; margin-right: 0px; margin-left: 0px; font-weight: bold; font-size: 13px; line-height: 19px; font-family: \" amazon=\"\" ember\",=\"\" arial,=\"\" sans-serif;=\"\" margin-bottom:=\"\" 6px=\"\" !important;=\"\" color:=\"\" rgb(86,=\"\" 89,=\"\" 89)=\"\" !important;\"=\"\"><span style=\"color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400;\">emple Grandin, Ph.D., is a gifted animal scientist who has designed one third of all the livestock-handling facilities in the United States. She also lectures widely on autism--because Temple Grandin is autistic, a woman who thinks, feels, and experiences the world in ways that are incomprehensible to the rest of us. In this unprecedented book, Grandin delivers a report from the country of autism. Writing from the dual perspectives of a scientist and an autistic person, she tells us how that country is experienced by its inhabitants and how she managed to breach its boundaries to function in the outside world. What emerges in Thinking in Pictures is the document of an extraordinary human being, one who, in gracefully and lucidly bridging the gulf between her condition and our own, sheds light on the riddle of our common identity.</span><br></h5>', '<p style=\"padding: 0px; margin-top: 0px; text-rendering: optimizelegibility; margin-bottom: 0px !important; line-height: 32px !important;\"><span id=\"productTitle\" class=\"a-size-large product-title-word-break\" style=\"text-rendering: optimizelegibility; word-break: break-word; line-height: 32px !important;\">Paperback English\r\nBy (author)  Temple Grandin\r\nBook details\r\nFormat Paperback | 240 pages\r\nLanguage English\r\nISBN10 0307275655\r\nISBN13 9780307275653\r\n</span></p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \" amazon=\"\" ember\",=\"\" arial,=\"\" sans-serif;=\"\" font-size:=\"\" 14px;\"=\"\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><h2 style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">About Temple Grandin</h2><h2 class=\"brownBackground\" style=\"margin: 0px; color: rgb(56, 33, 16); font-weight: bold; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; padding: 2px 0px; font-size: 12px; font-family: Lato, \" helvetica=\"\" neue\",=\"\" helvetica,=\"\" arial,=\"\" sans-serif;=\"\" line-height:=\"\" 24px;=\"\" position:=\"\" relative;=\"\" top:=\"\" 0px;=\"\" border-bottom:=\"\" 1px=\"\" solid=\"\" rgb(216,=\"\" 216,=\"\" 216);=\"\" width:=\"\" auto;=\"\" height:=\"\" text-transform:=\"\" uppercase;=\"\" white-space:=\"\" nowrap;\"=\"\"><div class=\"block text-block trunc\" data-height=\"100\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; overflow-wrap: break-word;\"><p style=\"margin-bottom: 0px; padding: 1rem 0px; font-size: 1.4rem; line-height: 21px;\">Temple Grandin, Ph.D., didn\'t talk until she was three and a half years old, communicating her frustration instead by screaming, peeping, and humming. In 1950, she was diagnosed with autism and her parents were told she should be institutionalized. She tells her story of \"groping her way from the far side of darkness\" in her book&nbsp;Emergence: Labeled Autistic, a book which stunned the world because, until its publication, most professionals and parents assumed that an autism diagnosis was virtually a death sentence to achievement or productivity in life.<br style=\"margin: 0px; padding: 0px;\"><br style=\"margin: 0px; padding: 0px;\">Even though she was considered \"weird\" in her young school years, she eventually found a mentor, who recognized her interests and abilities. Dr. Grandin later developed her talents into a successful career as a livestock-handling equipment designer, one of very few in the world. She has now designed the facilities in which half the cattle are handled in the United States, consulting for firms such as Burger King, McDonald\'s, Swift, and others.<br style=\"margin: 0px; padding: 0px;\"><br style=\"margin: 0px; padding: 0px;\"><span style=\"margin: 0px; padding: 0px;\">Dr. Grandin presently works as a Professor of Animal Science at Colorado State University. She also speaks around the world on both autism and cattle handling.</span></p></div></h2></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers aÂ </span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Â in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 4, 1, 1, 79),
-(103, 'Harvest for Hope: A Guide to Mindful Eating', '900', '700', 45, 'product-featured-103.png', '<p style=\"margin-bottom: 0px; padding: 1rem 0px; font-size: 14px; line-height: 21px; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">The renowned scientist who fundamentally changed the way we view primates and our relationship with the animal kingdom now turns her attention to an incredibly important and deeply personal issue-taking a stand for a more sustainable world. In this provocative and encouraging book, Jane Goodall sounds a clarion call to Western society, urging us to take a hard look at the food we produce and consume-and showing us how easy it is to create positive change.Offering her hopeful, but stirring vision, Goodall argues convincingly that each individual can make a difference. She offers simple strategies each of us can employ to foster a sustainable society. Brilliant, empowering, and irrepressibly optimistic, HARVEST FOR HOPE is one of the most crucial works of our age. If we follow Goodall\'s sound advice, we just might save ourselves before it\'s too late.<br style=\"margin: 0px; padding: 0px;\"></p><div><br></div>', '<ul class=\"meta-info hidden-md\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><li style=\"margin: 0px; padding: 0px 1rem 0px 0px; display: inline-block; position: relative;\">Hardcover</li>&nbsp;<li style=\"margin: 0px; padding: 0px 0px 0px 1rem; display: inline-block; position: relative;\"><span itemprop=\"inLanguage\" itemtype=\"http://schema.org/Language\" style=\"margin: 0px; padding: 0px;\">English</span></li></ul><div class=\"author-info hidden-md\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">By (author)&nbsp;&nbsp;<span itemprop=\"author\" itemtype=\"http://schema.org/Person\" itemscope=\"Jane Goodall\" style=\"margin: 0px; padding: 0px;\"><span itemprop=\"name\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); border-bottom: 1px dotted rgb(170, 170, 170);\">Jane Goodall</span></span></div><div class=\"author-info hidden-md\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><span itemprop=\"author\" itemtype=\"http://schema.org/Person\" itemscope=\"Jane Goodall\" style=\"margin: 0px; padding: 0px;\"><span itemprop=\"name\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); border-bottom: 1px dotted rgb(170, 170, 170);\"><h2 class=\"biblio-title\" style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">Book details</h2><ul class=\"biblio-info\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; list-style: none; columns: auto 2; max-width: 80rem;\"><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">Format</label>&nbsp;<span style=\"margin: 0px; padding: 0px;\">Hardcover |&nbsp;<span itemprop=\"numberOfPages\" style=\"margin: 0px; padding: 0px;\">296 pages</span></span></li><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">Language</label>&nbsp;<span style=\"margin: 0px; padding: 0px;\">English</span></li><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">ISBN10</label>&nbsp;<span style=\"margin: 0px; padding: 0px;\">0446533629</span></li><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">ISBN13</label>&nbsp;<span itemprop=\"isbn\" style=\"margin: 0px; padding: 0px;\">9780446533621</span></li></ul></span></span></div>', '<h2 style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">About Jane Goodall</h2><div class=\"block text-block trunc\" data-height=\"100\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px; overflow-wrap: break-word;\"><p style=\"margin-bottom: 0px; padding: 1rem 0px; font-size: 1.4rem; line-height: 21px;\"><span id=\"freeText14004145777065631169\" style=\"margin: 0px; padding: 0px;\">Dame Jane Morris Goodall, DBE (born Valerie Jane Morris-Goodall), is a British primatologist, ethologist, anthropologist, and UN Messenger of Peace. Considered to be the world\'s foremost expert on chimpanzees, Goodall is best known for her 45-year study of social and family interactions of wild chimpanzees in Gombe Stream National Park, Tanzania. She is the founder of the Jane Goodall Institute and has worked extensively on conservation and animal welfare issues.<br style=\"margin: 0px; padding: 0px;\"><br style=\"margin: 0px; padding: 0px;\">On 28 March 1964, she married a Dutch nobleman, wildlife photographer Baron Hugo van Lawick, at Chelsea Old Church, London, and she became known during their marriage as Baroness Jane van Lawick-Goodall.</span></p></div>', '', '', 0, 1, 1, 56),
+(103, 'Harvest for Hope: A Guide to Mindful Eating', '900', '700', 45, 'product-featured-103.png', '<p style=\"margin-bottom: 0px; padding: 1rem 0px; font-size: 14px; line-height: 21px; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">The renowned scientist who fundamentally changed the way we view primates and our relationship with the animal kingdom now turns her attention to an incredibly important and deeply personal issue-taking a stand for a more sustainable world. In this provocative and encouraging book, Jane Goodall sounds a clarion call to Western society, urging us to take a hard look at the food we produce and consume-and showing us how easy it is to create positive change.Offering her hopeful, but stirring vision, Goodall argues convincingly that each individual can make a difference. She offers simple strategies each of us can employ to foster a sustainable society. Brilliant, empowering, and irrepressibly optimistic, HARVEST FOR HOPE is one of the most crucial works of our age. If we follow Goodall\'s sound advice, we just might save ourselves before it\'s too late.<br style=\"margin: 0px; padding: 0px;\"></p><div><br></div>', '<ul class=\"meta-info hidden-md\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><li style=\"margin: 0px; padding: 0px 1rem 0px 0px; display: inline-block; position: relative;\">Hardcover</li>&nbsp;<li style=\"margin: 0px; padding: 0px 0px 0px 1rem; display: inline-block; position: relative;\"><span itemprop=\"inLanguage\" itemtype=\"http://schema.org/Language\" style=\"margin: 0px; padding: 0px;\">English</span></li></ul><div class=\"author-info hidden-md\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">By (author)&nbsp;&nbsp;<span itemprop=\"author\" itemtype=\"http://schema.org/Person\" itemscope=\"Jane Goodall\" style=\"margin: 0px; padding: 0px;\"><span itemprop=\"name\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); border-bottom: 1px dotted rgb(170, 170, 170);\">Jane Goodall</span></span></div><div class=\"author-info hidden-md\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><span itemprop=\"author\" itemtype=\"http://schema.org/Person\" itemscope=\"Jane Goodall\" style=\"margin: 0px; padding: 0px;\"><span itemprop=\"name\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); border-bottom: 1px dotted rgb(170, 170, 170);\"><h2 class=\"biblio-title\" style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">Book details</h2><ul class=\"biblio-info\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; list-style: none; columns: auto 2; max-width: 80rem;\"><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">Format</label>&nbsp;<span style=\"margin: 0px; padding: 0px;\">Hardcover |&nbsp;<span itemprop=\"numberOfPages\" style=\"margin: 0px; padding: 0px;\">296 pages</span></span></li><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">Language</label>&nbsp;<span style=\"margin: 0px; padding: 0px;\">English</span></li><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">ISBN10</label>&nbsp;<span style=\"margin: 0px; padding: 0px;\">0446533629</span></li><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">ISBN13</label>&nbsp;<span itemprop=\"isbn\" style=\"margin: 0px; padding: 0px;\">9780446533621</span></li></ul></span></span></div>', '<h2 style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">About Jane Goodall</h2><div class=\"block text-block trunc\" data-height=\"100\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px; overflow-wrap: break-word;\"><p style=\"margin-bottom: 0px; padding: 1rem 0px; font-size: 1.4rem; line-height: 21px;\"><span id=\"freeText14004145777065631169\" style=\"margin: 0px; padding: 0px;\">Dame Jane Morris Goodall, DBE (born Valerie Jane Morris-Goodall), is a British primatologist, ethologist, anthropologist, and UN Messenger of Peace. Considered to be the world\'s foremost expert on chimpanzees, Goodall is best known for her 45-year study of social and family interactions of wild chimpanzees in Gombe Stream National Park, Tanzania. She is the founder of the Jane Goodall Institute and has worked extensively on conservation and animal welfare issues.<br style=\"margin: 0px; padding: 0px;\"><br style=\"margin: 0px; padding: 0px;\">On 28 March 1964, she married a Dutch nobleman, wildlife photographer Baron Hugo van Lawick, at Chelsea Old Church, London, and she became known during their marriage as Baroness Jane van Lawick-Goodall.</span></p></div>', '', '', 21, 1, 1, 56),
 (104, 'Reasons for Hope: a Spiritual Journey', '900', '700', 45, 'product-featured-104.jpg', '<p>From world-renowned scientist Jane Goodall, as seen in the new National Geographic documentary Jane, comes a poignant memoir about her spiritual epiphany and an appeal for why everyone can find a reason for hope. Dr. Jane Goodall\'s revolutionary study of chimpanzees in Tanzania\'s Gombe preserve forever altered the very, definition of humanity. Now, in a poignant and insightful memoir, Jane Goodall explores her extraordinary life and personal spiritual odyssey, with observations as profound as the knowledge she has brought back from the forest.<br></p>', '<ul class=\"meta-info hidden-md\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; list-style: none; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><li style=\"margin: 0px; padding: 0px 1rem 0px 0px; display: inline-block; position: relative;\">Hardcover</li> <li style=\"margin: 0px; padding: 0px 0px 0px 1rem; display: inline-block; position: relative;\"><span itemprop=\"inLanguage\" itemtype=\"http://schema.org/Language\" style=\"margin: 0px; padding: 0px;\">English</span></li></ul><div class=\"author-info hidden-md\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">By (author)  <span itemprop=\"author\" itemtype=\"http://schema.org/Person\" itemscope=\"Jane Goodall\" style=\"margin: 0px; padding: 0px;\"><span itemprop=\"name\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); border-bottom: 1px dotted rgb(170, 170, 170);\">Jane Goodall</span></span></div><div class=\"author-info hidden-md\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><span itemprop=\"author\" itemtype=\"http://schema.org/Person\" itemscope=\"Jane Goodall\" style=\"margin: 0px; padding: 0px;\"><span itemprop=\"name\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); border-bottom: 1px dotted rgb(170, 170, 170);\"><h2 class=\"biblio-title\" style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">Book details</h2><ul class=\"biblio-info\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; list-style: none; columns: auto 2; max-width: 80rem;\"><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">Format</label> <span style=\"margin: 0px; padding: 0px;\">Hardcover | <span itemprop=\"numberOfPages\" style=\"margin: 0px; padding: 0px;\">282 pages</span></span></li><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">Language</label> <span style=\"margin: 0px; padding: 0px;\">English</span></li><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">ISBN10</label> <span style=\"margin: 0px; padding: 0px;\">0446522252</span></li><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">ISBN13</label> <span itemprop=\"isbn\" style=\"margin: 0px; padding: 0px;\">9780446522250</span></li></ul></span></span></div>', '<p>About Jane Goodall</p><p>Dame Jane Morris Goodall, DBE (born Valerie Jane Morris-Goodall), is a British primatologist, ethologist, anthropologist, and UN Messenger of Peace. Considered to be the world\'s foremost expert on chimpanzees, Goodall is best known for her 45-year study of social and family interactions of wild chimpanzees in Gombe Stream National Park, Tanzania. She is the founder of the Jane Goodall Institute and has worked extensively on conservation and animal welfare issues.</p><p><br></p><p>On 28 March 1964, she married a Dutch nobleman, wildlife photographer Baron Hugo van Lawick, at Chelsea Old Church, London, and she became known during their marriage as Baroness Jane van Lawick-Goodall.</p>', '', '', 0, 0, 1, 79),
-(105, 'When Husband Wife Become Mom & : What Every Marriage Needs', '900', '700', 45, 'product-featured-105.png', '<p style=\"margin-bottom: 0px; padding: 1rem 0px; font-size: 14px; line-height: 21px; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">Discusses issues that may affect a marriage after a child is born and offers advice on such topics as commitment, intimacy, and interdependence.<br style=\"margin: 0px; padding: 0px;\"></p><div><br></div>', '<ul class=\"meta-info hidden-md\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><li style=\"margin: 0px; padding: 0px 1rem 0px 0px; display: inline-block; position: relative;\">Hardcover</li>&nbsp;<li style=\"margin: 0px; padding: 0px 0px 0px 1rem; display: inline-block; position: relative;\"><span itemprop=\"inLanguage\" itemtype=\"http://schema.org/Language\" style=\"margin: 0px; padding: 0px;\">English</span></li></ul><div class=\"author-info hidden-md\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">By (author)&nbsp;&nbsp;<span itemprop=\"author\" itemtype=\"http://schema.org/Person\" itemscope=\"Elisa Morgan\" style=\"margin: 0px; padding: 0px;\"><span itemprop=\"name\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); border-bottom: 1px dotted rgb(170, 170, 170);\">Elisa Morgan</span></span></div><div class=\"author-info hidden-md\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><span itemprop=\"author\" itemtype=\"http://schema.org/Person\" itemscope=\"Elisa Morgan\" style=\"margin: 0px; padding: 0px;\"><span itemprop=\"name\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); border-bottom: 1px dotted rgb(170, 170, 170);\"><h2 class=\"biblio-title\" style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\"><label style=\"font-size: 14px; margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">Format</label><span style=\"font-size: 14px;\">&nbsp;</span><span style=\"font-size: 14px; margin: 0px; padding: 0px;\">Hardcover |&nbsp;<span itemprop=\"numberOfPages\" style=\"margin: 0px; padding: 0px;\">223 pages</span></span><br></h2><ul class=\"biblio-info\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; list-style: none; columns: auto 2; max-width: 80rem;\"><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">Language</label>&nbsp;<span style=\"margin: 0px; padding: 0px;\">English</span></li><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">ISBN10</label>&nbsp;<span style=\"margin: 0px; padding: 0px;\">0310226988</span></li><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">ISBN13</label>&nbsp;<span itemprop=\"isbn\" style=\"margin: 0px; padding: 0px;\">9780310226987</span></li></ul></span></span></div>', '<h2 style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">About Elisa Morgan</h2><div class=\"block text-block trunc\" data-height=\"100\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px; overflow-wrap: break-word;\">Elisa Morgan was</div>', '', '', 0, 1, 1, 63),
+(105, 'When Husband Wife Become Mom & : What Every Marriage Needs', '900', '700', 44, 'product-featured-105.png', '<p style=\"margin-bottom: 0px; padding: 1rem 0px; font-size: 14px; line-height: 21px; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">Discusses issues that may affect a marriage after a child is born and offers advice on such topics as commitment, intimacy, and interdependence.<br style=\"margin: 0px; padding: 0px;\"></p><div><br></div>', '<ul class=\"meta-info hidden-md\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><li style=\"margin: 0px; padding: 0px 1rem 0px 0px; display: inline-block; position: relative;\">Hardcover</li>&nbsp;<li style=\"margin: 0px; padding: 0px 0px 0px 1rem; display: inline-block; position: relative;\"><span itemprop=\"inLanguage\" itemtype=\"http://schema.org/Language\" style=\"margin: 0px; padding: 0px;\">English</span></li></ul><div class=\"author-info hidden-md\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">By (author)&nbsp;&nbsp;<span itemprop=\"author\" itemtype=\"http://schema.org/Person\" itemscope=\"Elisa Morgan\" style=\"margin: 0px; padding: 0px;\"><span itemprop=\"name\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); border-bottom: 1px dotted rgb(170, 170, 170);\">Elisa Morgan</span></span></div><div class=\"author-info hidden-md\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><span itemprop=\"author\" itemtype=\"http://schema.org/Person\" itemscope=\"Elisa Morgan\" style=\"margin: 0px; padding: 0px;\"><span itemprop=\"name\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); border-bottom: 1px dotted rgb(170, 170, 170);\"><h2 class=\"biblio-title\" style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\"><label style=\"font-size: 14px; margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">Format</label><span style=\"font-size: 14px;\">&nbsp;</span><span style=\"font-size: 14px; margin: 0px; padding: 0px;\">Hardcover |&nbsp;<span itemprop=\"numberOfPages\" style=\"margin: 0px; padding: 0px;\">223 pages</span></span><br></h2><ul class=\"biblio-info\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; list-style: none; columns: auto 2; max-width: 80rem;\"><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">Language</label>&nbsp;<span style=\"margin: 0px; padding: 0px;\">English</span></li><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">ISBN10</label>&nbsp;<span style=\"margin: 0px; padding: 0px;\">0310226988</span></li><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">ISBN13</label>&nbsp;<span itemprop=\"isbn\" style=\"margin: 0px; padding: 0px;\">9780310226987</span></li></ul></span></span></div>', '<h2 style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">About Elisa Morgan</h2><div class=\"block text-block trunc\" data-height=\"100\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px; overflow-wrap: break-word;\">Elisa Morgan was</div>', '', '', 3, 1, 1, 63),
 (106, 'Magical Thinking : True Stories', '900', '600', 45, 'product-featured-106.png', '<p><span style=\"color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">From the number-one bestselling author of Running with Scissors and Dry comes Augusten Burroughs\'s most eagerly anticipated collection yet: true stories that give voice to the thoughts that we all have but dare not mention.</span><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><span style=\"color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">It begins with a Tang Instant-Breakfast Drink television commercial:</span><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><span style=\"color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">\"Yes, you, Augusten. You were great. We want you.\" I can now trace my manic adult tendencies to this moment. It was the first time I felt deeply thrilled about something just a fraction of an instant after being completely crushed. I believe those three words \"We want you\" were enough to cause my brain to rewire itself, and from then on, I would require more than other people....- from Magical Thinking\'s \"Commercial Break\"</span><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><span style=\"color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">A contest of wills with a deranged cleaning lady. The execution of a rodent carried out with military precision and utter horror. Telemarketing revenge. A different kind of \"roof work.\" Dating an undertaker who shows up in a minivan. This is the fabric of Augusten Burroughs\'s life: a collection of true stories that are universal in their appeal yet unabashedly intimate, stories that shine a flashlight into both dark and hilarious places. With Magical Thinking, Augusten Burroughs goes where other memoirists fear to tread.</span><br></p>', '<ul class=\"meta-info hidden-md\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; list-style: none; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><li style=\"margin: 0px; padding: 0px 1rem 0px 0px; display: inline-block; position: relative;\">Hardcover</li> <li style=\"margin: 0px; padding: 0px 0px 0px 1rem; display: inline-block; position: relative;\"><span itemprop=\"inLanguage\" itemtype=\"http://schema.org/Language\" style=\"margin: 0px; padding: 0px;\">English</span></li></ul><div class=\"author-info hidden-md\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">By (author)  <span itemprop=\"author\" itemtype=\"http://schema.org/Person\" itemscope=\"Augusten Burroughs\" style=\"margin: 0px; padding: 0px;\"><a href=\"https://atticbooks.co.ke/books/author/augusten-burroughs\" itemprop=\"url\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); border-bottom: 1px dotted rgb(170, 170, 170);\"><span itemprop=\"name\" style=\"margin: 0px; padding: 0px;\">Augusten Burroughs</span></a></span></div><div><ul class=\"biblio-info\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; list-style: none; columns: auto 2; max-width: 80rem; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">Format</label> <span style=\"margin: 0px; padding: 0px;\">Hardcover | <span itemprop=\"numberOfPages\" style=\"margin: 0px; padding: 0px;\">268 pages</span></span></li><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">Language</label> <span style=\"margin: 0px; padding: 0px;\">English</span></li><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">ISBN10</label> <span style=\"margin: 0px; padding: 0px;\">0312315945</span></li><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">ISBN13</label> <span itemprop=\"isbn\" style=\"margin: 0px; padding: 0px;\">9780312315948</span></li></ul></div>', '<h2 style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">About Augusten Burroughs</h2>', '', '', 0, 0, 1, 79),
 (107, 'The Unconquered', '900', '500', 45, 'product-featured-107.png', '<p style=\"margin-bottom: 0px; padding: 1rem 0px; font-size: 14px; line-height: 21px; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">THE UNCONQUERED TELLS THE EXTRAORDINARY TRUE STORY OF A JOURNEY INTO THE DEEPEST RECESSES OF THE AMAZON TO TRACK ONE OF THE PLANET S LAST UNCONTACTED IN DIGENOUS TRIBES.<br style=\"margin: 0px; padding: 0px;\">Even today there remain tribes in the far reaches of the Amazon rainforest that have avoided contact with modern civilization. Deliberately hiding from the outside world, they are the unconquered, the last survivors of an ancient culture that predates the arrival of Columbus in the New World. In this gripping first-person account of adventure and survival, author Scott Wallace chronicles an expedition into the Amazon s uncharted depths, discovering the rainforest s secrets while moving ever closer to a possible encounter with one such tribe the mysterious \"flecheiros, \"or People of the Arrow, seldom-glimpsed warriors known to repulse all intruders with showers of deadly arrows. On assignment for \"National Geographic, \"Wallace joins Brazilian explorer Sydney Possuelo at the head of a thirty-four-man team that ventures deep into the unknown in search of the tribe. Possuelo s mission is to protect the Arrow People. But the information he needs to do so can only be gleaned by entering a world of permanent twilight beneath the forest canopy.<br style=\"margin: 0px; padding: 0px;\">Danger lurks at every step as the expedition seeks out the Arrow People even while trying to avoid them. Along the way, Wallace uncovers clues as to who the Arrow People might be, how they have managed to endure as one of the last unconquered tribes, and why so much about them must remain shrouded in mystery if they are to survive. Laced with lessons from anthropology and the Amazon s own convulsed history, and boasting a Conradian cast of unforgettable characters all driven by a passion to preserve the wild, but also wracked by fear, suspicion, and the desperate need to make it home alive \"The Unconquered \"reveals this critical battleground in the fight to save the planet as it has rarely been seen, wrapped in a page-turning tale of adventure.\"<br style=\"margin: 0px; padding: 0px;\"></p><div><br></div>', '<ul class=\"meta-info hidden-md\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><li style=\"margin: 0px; padding: 0px 1rem 0px 0px; display: inline-block; position: relative;\">Hardcover</li>&nbsp;<li style=\"margin: 0px; padding: 0px 0px 0px 1rem; display: inline-block; position: relative;\"><span itemprop=\"inLanguage\" itemtype=\"http://schema.org/Language\" style=\"margin: 0px; padding: 0px;\">English</span></li></ul><div class=\"author-info hidden-md\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">By (author)&nbsp;&nbsp;<span itemprop=\"author\" itemtype=\"http://schema.org/Person\" itemscope=\"Scott Wallace\" style=\"margin: 0px; padding: 0px;\"><span itemprop=\"name\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); border-bottom: 1px dotted rgb(170, 170, 170);\">Scott Wallace</span></span></div><div class=\"author-info hidden-md\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><span itemprop=\"author\" itemtype=\"http://schema.org/Person\" itemscope=\"Scott Wallace\" style=\"margin: 0px; padding: 0px;\"><span itemprop=\"name\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); border-bottom: 1px dotted rgb(170, 170, 170);\"><ul class=\"biblio-info\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; list-style: none; columns: auto 2; max-width: 80rem;\"><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">Format</label>&nbsp;<span style=\"margin: 0px; padding: 0px;\">Hardcover |&nbsp;<span itemprop=\"numberOfPages\" style=\"margin: 0px; padding: 0px;\">416 pages</span></span></li><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">Language</label>&nbsp;<span style=\"margin: 0px; padding: 0px;\">English</span></li><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">ISBN10</label>&nbsp;<span style=\"margin: 0px; padding: 0px;\">030746296X</span></li><li style=\"margin: 0px; padding: 0px; line-height: 2.8rem;\"><label style=\"margin-top: 0px; margin-right: 0px; margin-left: 0px; padding: 0px;\">ISBN13</label>&nbsp;<span itemprop=\"isbn\" style=\"margin: 0px; padding: 0px;\">9780307462961</span></li></ul></span></span></div>', '<h2 style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">About Scott Wallace</h2><div class=\"block text-block trunc\" data-height=\"100\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px; overflow-wrap: break-word;\">Scott Wallace was</div>', '', '', 0, 1, 1, 79),
 (108, 'How They Started Digital', '900', '850', 45, 'product-featured-108.png', '<p><span style=\"color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">How did Twitter get so big? Which company\'s idea originated because the founder was forgetful? And which digital start-up\'s website was worth over $1 billion dollars in just 16 months?</span><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><span style=\"color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">Discover what it is that make entrepreneurs succeed with these fascinating and inspirational profiles that reveal how an idea became a profitable digital business.</span><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><span style=\"color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">Whether you\'re simply fascinated by how digital businesses are started, or you\'re an aspiring entrepreneur who wants to find out how others have gone about starting their own business, How They Started Digital is for you.</span><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><span style=\"color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">The result is a </span><a title=\"Buy How they started by David Lester\" href=\"https://atticbooks.co.ke/books/how-they-started-digital\" style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); border-bottom: none; font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">book</a><span style=\"color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"> which has far more detail about how people turned ideas into digital startup businesses than any other book on the market, other than a specific biography all about one business. How They Started is the result of a substantial amount of research, involving extensive discussions with the founders of each digital business, and several times we include detailed information we had to work hard to persuade the founders to give us!</span><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><span style=\"color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">Based on a deep understanding of business and the questions that entrepreneurs ask gained from ten years running www.startups.co.uk, author and serial entrepreneur David Lester has ensured that there are good answers to these questions in the businesses profiled in How They Started Digital.</span><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><span style=\"color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">A jargon-free, easily readable series of stories of the greatest digital entrepreneurs of today, each business profile in How They Started Digital reveals:</span><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><span style=\"color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">* What that one important idea was</span><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><span style=\"color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">* How they chose their name</span><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><span style=\"color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">* Where the funding came from and how they got it</span><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><span style=\"color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">* How they overcame any obstacles to success</span><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><span style=\"color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">If you\'re fascinated by digital businesses or have ambitions to be the next James Caan, How They Started will give you inspiration and an insight into the business ingenuity of digital startups and entrepreneurs. Most of these businesses have revolutionised our commercial and social landscape. All of them started with just a really good idea.</span><br style=\"margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\"><span style=\"color: rgb(51, 51, 51); font-family: \"Segoe UI\", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">Find out how that good idea turned into a great one.</span><br></p>', '<p>Format Paperback | 256 pages</p><p>Language English</p><p>ISBN10 178059089X</p><p>ISBN13 9781780590899</p>', '<p>About David Lester<br></p>', '', '', 0, 0, 1, 68);
 INSERT INTO `tbl_product` (`p_id`, `p_name`, `p_old_price`, `p_current_price`, `p_qty`, `p_featured_photo`, `p_description`, `p_short_description`, `p_feature`, `p_condition`, `p_return_policy`, `p_total_view`, `p_is_featured`, `p_is_active`, `ecat_id`) VALUES
-(109, 'Starting Your Own Business: The Good, The Bad & The Unexpected', '700', '500', 45, 'product-featured-109.jpg', '<p><span style=\"color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">This is the definitive guide to starting a business for all entrepreneurs. This book reveals what it is really like to start up your own business and explains how you can make it happen. It is jam-packed with practical advice and has extensive real life examples. Author, David Lester, is perfectly placed to write this book: himself a serial entrepreneur, he started his first business aged 22 and sold it for millions before he was 30. This guide that will prove invaluable to anyone who is thinking of starting their own business.</span><br></p>', '<p>Format Paperback | 272 pages</p><p>Language English</p><p>ISBN10 1854584014</p><p>ISBN13 9781854584014</p>', '<h2 style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">About David Lester</h2>', '', '', 0, 1, 1, 69),
+(109, 'Starting Your Own Business: The Good, The Bad & The Unexpected', '700', '500', 45, 'product-featured-109.jpg', '<p><span style=\"color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">This is the definitive guide to starting a business for all entrepreneurs. This book reveals what it is really like to start up your own business and explains how you can make it happen. It is jam-packed with practical advice and has extensive real life examples. Author, David Lester, is perfectly placed to write this book: himself a serial entrepreneur, he started his first business aged 22 and sold it for millions before he was 30. This guide that will prove invaluable to anyone who is thinking of starting their own business.</span><br></p>', '<p>Format Paperback | 272 pages</p><p>Language English</p><p>ISBN10 1854584014</p><p>ISBN13 9781854584014</p>', '<h2 style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">About David Lester</h2>', '', '', 3, 1, 1, 69),
 (110, 'The Kingdom of the Hittites', '900', '850', 45, 'product-featured-110.png', '<p><span style=\"color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">In the 14th century BC the Hittites became the supreme political and military power in the Near East. How did they achieve their supremacy? How successful were they in maintaining it? What brought about their collapse and disappearance? This comprehensive history of the Hittite kingdom seeks to answer these questions. It takes account of important recent advances in Hittite scholarship, including some major archaeological discoveries made in the last few years. It also features numerous translations from the original texts, so that on many issues the ancient Hittites are given the opportunity to speak to the modern reader for themselves. The revised edition contains a substantial amount of new material, as well as numerous other revisions to the first edition.</span><br></p>', '<p>Format Hardcover | 354 pages</p><p>Language English</p><p>ISBN10 0965064107</p><p>ISBN13 9780965064101</p>', '<p>About Trevor Bryce<br></p>', '', '', 0, 0, 1, 82),
 (111, 'The Christian Book of Mystical Verse', '790', '400', 45, 'product-featured-111.png', '<p><span style=\"color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">2011 Reprint of 1963 edition. Full facsimile of the original edition, not reproduced with Optical Recognition Software. Selected and with an introduction and notes by A.W. Tozer. The purpose of this book is to bring together in one convenient volume some of the best devotional verse the English language affords, and thus to make available to present day Christians a rich spiritual heritage which the greater number of them for various reasons do not now enjoy. Includes works by Isaac Watts, Oliver Wendell Holmes, F.W. Faber, Milman, Shirley, Wesley, Rossetti, Gerhardt, Pollock, Tate, Brady, Tersteegen, Ware, Nicolai, Bonar and others. Tozer served 44 years of ministry, associated with the Christian and Missionary Alliance, a Protestant evangelical denomination; 33 of those years were served as a pastor in a number of churches. He is the author of dozens of books, two of which, The Pursuit of God and The Knowledge of the Holy, are considered classics. His books impress on the reader the possibility and necessity for a deeper relationship with God.</span><br></p>', '<p>Format Hardcover | 168 pages</p><p>Language English</p><p>ISBN10 1614270155</p><p>ISBN13 9781614270157</p>', '<p>About A.W Tozer<br></p>', '', '', 0, 0, 1, 74),
 (112, ' Advanced Selling Strategies', '790', '500', 45, 'product-featured-112.jpg', '<p>The most powerful system for sales success—from the author of the bestselling audiobook, The Psychology of Selling.</p><p><br></p><p>Strategy, tactics, and mental preparedness separate superior salespeople from the average—and with technological advances evening the competition, the selling edge is now more important than ever. Drawing on his own successful sales career and on his extensive experience as a sales consultant and seminar leader, Brian Tracy has developed the most comprehensive and effective approach to selling ever created.</p><p><br></p><p>Advanced Selling Strategies provides you with the techniques and tools used by top salespeople in every industry—methods that net immediate and spectacular results. This book explains how to:</p><p>* Develop the self-image to give you the edge in every sales situation</p><p>* Concentrate on the customer’s emotional factors to ensure better sales results</p><p>* Identify your customer’s most pressing concerns and position your product or service to fill those needs</p><p><br></p><p>A MUST READ FOR SALESPEOPLE AND BUSINESSPEOPLE ALIKE.</p>', '<p>Format Paperback | 429 pages</p><p>Language English</p><p>ISBN10 0684824744</p><p>ISBN13 9780684824741</p>', '<h2 style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">About Brian Tracy</h2>', '', '', 0, 1, 1, 59),
@@ -727,145 +686,13 @@ INSERT INTO `tbl_product` (`p_id`, `p_name`, `p_old_price`, `p_current_price`, `
 (121, 'Megatrends for Women', '870', '670', 40, 'product-featured-121.png', '<p>\"Excellent and insightful. Aburdene and Naisbitt show how women are revolutionizing American society.\"</p><p>U.S. REPRESENTATIVE PAT SHROEDER</p><p>As women assume power in all facets of public and private life in the 1990s, the quality of every woman\'s life will change for the better. MEGATRENDS FOR WOMEN gives you the state-of-the-art tools you need to capitalize on women\'s bold achievements, no matter what your age or experience. You will learn that: entrepreneurship is a growth industry for women; \"Family Values\" will include more accessible childcare for working mothers; women religious leaders will transform religious leadership from all male to egalitarian, and so much more.</p><p><br></p>', '<p>Format Paperback | 386 pages</p><p>Language English</p><p>ISBN10 0679412212</p><p>ISBN13 9780679412212</p>', '<p>About Patricia Aburdene<br></p>', '', '', 0, 0, 1, 69),
 (122, 'Daniel McEvoy #1: Plugged', '870', '670', 40, 'product-featured-122.png', '<p>Dan, an Irishman who\'s ended up in New Jersey, finds himself embroiled in a world of murder, kidnapping and corrupt cops. Dan works as a bouncer in a seedy club, half in love with hostess Connie. When Connie is murdered on the premises, a vengeful Dan finds himself embroiled in an increasingly deadly sequence of events in which his doctor friend Zeb goes mysteriously missing, a cop-killing female cop becomes his only ally, and he makes an enemy of ruthless drug-dealer Mike Madden. Written with the warmth and wit that make the Artemis Fowl novels so irresistible, though with additional torture and violence, PLUGGED is a brilliant crime debut from a naturally gifted writer with a huge fanbase.<br></p>', '<p>Format Paperback | 288 pages</p><p>Language English</p><p>ISBN10 0755379993</p><p>ISBN13 9780755379996</p>', '<p>About Eoin Colfer</p><p>Eoin Colfer (pronounced Owen) was born in Wexford on the South-East coast of Ireland in 1965, where he and his four brothers were brought up by his father and mother, who were both educators.</p><p><br></p><p>He received his degree from Dublin University and began teaching primary school in Wexford. He has lived and worked all over the world, including Saudi Arabia, Tunisia and Italy. After the publication of the Artemis Fowl novels, Eoin retired from teaching and now writes full time. He lives in Ireland with his wife and two children.</p>', '', '', 0, 0, 1, 54),
 (123, 'The Advocate\'s Devil', '870', '300', 40, 'product-featured-123.png', '<p><span style=\"color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">From the legal tactician who has represented such famous clients as Mike Tyson, O.J. Simpson, and Michael Milken, comes a novel that goes far beyond the limits of the courtroom thriller to probe our deepest fears and asks the controversial legal question--What do you do if you are a defense attorney who suspects your client is guilty and dangerous?</span><br></p>', '<p>Format Hardcover | 352 pages</p><p>Language English</p><p>ISBN10 0446517593</p><p>ISBN13 9780446517591</p>', '<p>About Alan Dershowitz<br></p>', '', '', 0, 0, 1, 54),
-(124, 'Even June Cleaver Would Forget the Juice Box', '510', '300', 40, 'product-featured-124.jpg', '<p>\'Perfectionism is the arch enemy of mothers everywhere. Dr. Dunnewold gives us a wise and user-friendly book that helps us to say \'Enough!\' to non-productive guilty, worry, and self-doubt--and \'Yes!\' to the simple ways we can learn to take better care of ourselves and our kids.\'</p><p>Harriet Lerner, Ph.D., author of The Dance of Anger and The Mother Dance</p><p>\'A reality check for parents, loaded with sensible advice and useful mantras, this book shows how jumping off the runaway train of Perfect Parenting is not only better for you, but teaches your child valuable lessons about real people living real lives. We\'re doing a Perfectly Good Job, and we are not alone!\'</p><p><br></p><p>Christie Mellor , author of The Three-Martini Playdate and</p><p>The Three-Martini Family Vacation</p><p>\"Finally, a book for mothers that does not blame or judge, but offers insight, guidance, and a healthy dose of compassion.\"</p><p>Andrea J. Buchanan , author of Mother Shock</p><p>Your Exit Strategy from the Pressure Cooker of Perfect Parenting</p><p>So . . . you missed T-ball tryouts, forgot to buy allergy-free organic snacks for today\'s playdate, got wait-listed for the top preschool, and now you feel like the worst mother in the world . . . again. Millions of moms are drowning in the pressure cooker of modern momhood and want out of the race. The good news: Your exit strategy has arrived.</p><p>If you\'re feeling overstressed, overtired, or overscheduled, noted psychologist Ann Dunnewold can help you rewrite the rules of motherhood by introducing a new, healthier paradigm--one that replaces the dysfunctional myth of the June Cleaver mom. Dr . Dunnewold will teach you:</p><p>How to follow your gut, not guilt; rely on your values instead of unrealistic expectations To start connecting instead of competing with other moms How to stop your tendency to \'overperfect, \' \'overprotect, \' or \'overproduce\' The 9 Dirty Secrets of Motherhood and why they\'re perfectly normal!</p><p>Even June Cleaver Would Forget the Juice Box finally gives you the green light and the guidance to cut yourself--and your family--some much-needed slack. Imperfect parents rejoice!</p>', '<p>Book details</p><p>Format Paperback | 306 pages</p><p>Language English</p><p>ISBN10 0757305466</p><p>ISBN13 97807573054</p>', '<p>About Ann Dunnewold<br></p>', '', '', 0, 0, 1, 63),
-(125, 'Soul\'s Perfection : Journey of the Soul', '510', '370', 40, 'product-featured-125.jpg', '<p><span style=\"color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">Sylvia Browne brings you Soul\'s Perfection, book 2 in the Journey of the Soul Series. This is a book filled with magnificent information about God, Life and the Universe. She leads you on your personal journey, telling you to love yourself, and to try to love everyone\'s soul. On loving others, Sylvia is quick to add with her well-known humour, that you have to try to love others, but you don\'t have to \'like them or their bad behaviour.\'</span><br></p>', '<p>Format Paperback | 222 pages</p><p>Language English</p><p>ISBN10 1561707236</p><p>ISBN13 9781561707232</p>', '<h2 style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">About Sylvia Browne</h2>', '', '', 0, 0, 1, 74),
-(126, 'The Millionaire\'s Diet - Eating For Success', '870', '700', 40, 'product-featured-126.png', '<p><span style=\"color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">The Millionaire\'s Diet: Eating For Success explores the direct relationship between the food we eat and our potential for success. In this book, some of the greatest teachers of our time, including John Gray, Marci Shimoff, David Wolfe, Janet Attwood, Dr. Daniel Amen and many more, reveal how what we eat actually determines who we are and who we can become. Most diets focus only on outward appearances. The Millionaire\'s Diet goes deep into the roots of our lives to show how food affects so much more: our spirit and energy, our hormones and the very brain chemistry that makes it possible to think and feel in a way that is conducive to our success in the world, our health, our relationships and our finances.</span><br></p>', '<p>Format Hardcover | 314 pages</p><p>Language English</p><p>ISBN10 0615599516</p><p>ISBN13 9780615599519</p>', '<p>About Anton Uhl<br></p>', '', '', 0, 0, 1, 56),
+(124, 'Even June Cleaver Would Forget the Juice Box', '510', '300', 40, 'product-featured-124.jpg', '<p>\'Perfectionism is the arch enemy of mothers everywhere. Dr. Dunnewold gives us a wise and user-friendly book that helps us to say \'Enough!\' to non-productive guilty, worry, and self-doubt--and \'Yes!\' to the simple ways we can learn to take better care of ourselves and our kids.\'</p><p>Harriet Lerner, Ph.D., author of The Dance of Anger and The Mother Dance</p><p>\'A reality check for parents, loaded with sensible advice and useful mantras, this book shows how jumping off the runaway train of Perfect Parenting is not only better for you, but teaches your child valuable lessons about real people living real lives. We\'re doing a Perfectly Good Job, and we are not alone!\'</p><p><br></p><p>Christie Mellor , author of The Three-Martini Playdate and</p><p>The Three-Martini Family Vacation</p><p>\"Finally, a book for mothers that does not blame or judge, but offers insight, guidance, and a healthy dose of compassion.\"</p><p>Andrea J. Buchanan , author of Mother Shock</p><p>Your Exit Strategy from the Pressure Cooker of Perfect Parenting</p><p>So . . . you missed T-ball tryouts, forgot to buy allergy-free organic snacks for today\'s playdate, got wait-listed for the top preschool, and now you feel like the worst mother in the world . . . again. Millions of moms are drowning in the pressure cooker of modern momhood and want out of the race. The good news: Your exit strategy has arrived.</p><p>If you\'re feeling overstressed, overtired, or overscheduled, noted psychologist Ann Dunnewold can help you rewrite the rules of motherhood by introducing a new, healthier paradigm--one that replaces the dysfunctional myth of the June Cleaver mom. Dr . Dunnewold will teach you:</p><p>How to follow your gut, not guilt; rely on your values instead of unrealistic expectations To start connecting instead of competing with other moms How to stop your tendency to \'overperfect, \' \'overprotect, \' or \'overproduce\' The 9 Dirty Secrets of Motherhood and why they\'re perfectly normal!</p><p>Even June Cleaver Would Forget the Juice Box finally gives you the green light and the guidance to cut yourself--and your family--some much-needed slack. Imperfect parents rejoice!</p>', '<p>Book details</p><p>Format Paperback | 306 pages</p><p>Language English</p><p>ISBN10 0757305466</p><p>ISBN13 97807573054</p>', '<p>About Ann Dunnewold<br></p>', '', '', 3, 0, 1, 63),
+(125, 'Soul\'s Perfection : Journey of the Soul', '510', '370', 38, 'product-featured-125.jpg', '<p><span style=\"color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">Sylvia Browne brings you Soul\'s Perfection, book 2 in the Journey of the Soul Series. This is a book filled with magnificent information about God, Life and the Universe. She leads you on your personal journey, telling you to love yourself, and to try to love everyone\'s soul. On loving others, Sylvia is quick to add with her well-known humour, that you have to try to love others, but you don\'t have to \'like them or their bad behaviour.\'</span><br></p>', '<p>Format Paperback | 222 pages</p><p>Language English</p><p>ISBN10 1561707236</p><p>ISBN13 9781561707232</p>', '<h2 style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">About Sylvia Browne</h2>', '', '', 7, 0, 1, 74),
+(126, 'The Millionaire\'s Diet - Eating For Success', '870', '700', 40, 'product-featured-126.png', '<p><span style=\"color: rgb(51, 51, 51); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 14px;\">The Millionaire\'s Diet: Eating For Success explores the direct relationship between the food we eat and our potential for success. In this book, some of the greatest teachers of our time, including John Gray, Marci Shimoff, David Wolfe, Janet Attwood, Dr. Daniel Amen and many more, reveal how what we eat actually determines who we are and who we can become. Most diets focus only on outward appearances. The Millionaire\'s Diet goes deep into the roots of our lives to show how food affects so much more: our spirit and energy, our hormones and the very brain chemistry that makes it possible to think and feel in a way that is conducive to our success in the world, our health, our relationships and our finances.</span><br></p>', '<p>Format Hardcover | 314 pages</p><p>Language English</p><p>ISBN10 0615599516</p><p>ISBN13 9780615599519</p>', '<p>About Anton Uhl<br></p>', '', '', 6, 0, 1, 56),
 (127, ' I Can\'t Complain : (all Too) Personal Essays', '520', '370', 40, 'product-featured-127.png', '<p>Lipman is always in top form as an essayist.\" - New York Times Book Review In her two decades of writing, Elinor Lipman has populated her fictional universe with characters so utterly real that we feel like they\'re old friends. Now she shares an even more intimate world with us--her own--in essays that offer a candid, charming take on modern life. Looking back and forging ahead, she considers the subjects that matter most: childhood and condiments, long marriage and solo living, career and politics. In these stories you\'ll find the lighthearted as well as the serious and profound. Whether for Lipman\'s longtime readers or those who love the essays of Nora Ephron or Anna Quindlen, I Can\'t Complain is a diverting delight. \"Engaging and moving . . . Whether or not one is a Lipman fan before reading this collection, he or she most certainly will be by the time the final page is turned.\" - Publishers Weekly \"Full of wit and charm, along with some trenchant observations.\"- Seattle Times \"A feast of bite-sized morsels of humor and wisdom.\" - Kirkus Reviews</p><div><br></div>', '<p>Format Paperback | 161 pages</p><p>Language English</p><p>ISBN10 0544227905</p><p>ISBN13 9780544227903</p>', '<p>About Elinor Lipman</p><div><br></div>', '', '', 0, 0, 1, 79),
-(128, 'Lore of Whisky', '520', '200', 40, 'product-featured-128.png', '<p>The Lore Of Whisky pays homage to the mysterious world of whisky. The journey begins with the history and origins of whisky originating in Scotland, through to the story of the five successful distilleries in Tasmania, and dropping in on many other wonderful whisky destinations in between.</p><p><br></p><p>With detailed information about the different types of whiskies, magical descriptions of their physical appearance and with tasting notes from Alice Parsons, The Lore Of Whisky takes us on a sensory journey through the often mysterious world of whisky.</p><p><br></p><p>Also included are fascinating tips and tricks for things to do with whisky, including making whisky ice balls and whisky wonders.</p><p><br></p><p>This is truly a book that all whisky lovers will enjoy.</p><p><br></p><p>Quote from Bill Lark, owner of Tasmania\'s leading distillery in Tasmania</p><p><br></p><p>\"This is the book that needs to be written\"</p><div><br></div>', '<p>Format Hardcover | 120 pages</p><p>Language English</p><p>ISBN10 1922190721</p><p>ISBN13 9781922190727</p>', '<p>About Alice Parsons<br></p>', '', '', 0, 0, 1, 83),
-(129, 'In the Kitchen with Rosie', '520', '300', 38, 'product-featured-129.png', '<p>Presents fifty recipes for low-fat dishes, including main dishes, vegetables, appetizers, and desserts<br></p>', '<p>Format Hardcover | 142 pages</p><p>Language English</p><p>ISBN10 0679434046</p><p>ISBN13 9780679434047</p>', '<h2 style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">About Rosie Daley</h2>', '', '', 9, 0, 1, 83),
+(128, 'Lore of Whisky', '520', '200', 40, 'product-featured-128.png', '<p>The Lore Of Whisky pays homage to the mysterious world of whisky. The journey begins with the history and origins of whisky originating in Scotland, through to the story of the five successful distilleries in Tasmania, and dropping in on many other wonderful whisky destinations in between.</p><p><br></p><p>With detailed information about the different types of whiskies, magical descriptions of their physical appearance and with tasting notes from Alice Parsons, The Lore Of Whisky takes us on a sensory journey through the often mysterious world of whisky.</p><p><br></p><p>Also included are fascinating tips and tricks for things to do with whisky, including making whisky ice balls and whisky wonders.</p><p><br></p><p>This is truly a book that all whisky lovers will enjoy.</p><p><br></p><p>Quote from Bill Lark, owner of Tasmania\'s leading distillery in Tasmania</p><p><br></p><p>\"This is the book that needs to be written\"</p><div><br></div>', '<p>Format Hardcover | 120 pages</p><p>Language English</p><p>ISBN10 1922190721</p><p>ISBN13 9781922190727</p>', '<p>About Alice Parsons<br></p>', '', '', 2, 0, 1, 83),
+(129, 'In the Kitchen with Rosie', '520', '300', 40, 'product-featured-129.png', '<p>Presents fifty recipes for low-fat dishes, including main dishes, vegetables, appetizers, and desserts<br></p>', '<p>Format Hardcover | 142 pages</p><p>Language English</p><p>ISBN10 0679434046</p><p>ISBN13 9780679434047</p>', '<h2 style=\"margin: 0px 0px 1rem; padding: 0px 0px 1rem; color: rgb(51, 51, 51); font-size: 1.8rem; border-bottom: 1px solid rgb(240, 240, 240); font-family: &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;\">About Rosie Daley</h2>', '', '', 9, 0, 1, 83),
 (130, 'McCall\'s no time to cook: Meals in minutes', '790', '670', 40, 'product-featured-130.png', '<p>The contents include: Timesaving Kitchen Techniques; Fast Fixings; Do-Ahead Cooking, Time Well Spent; Freeze-Ahead Favorites; No-Fuss Cooking<br></p>', '<p>Book details</p><p>Format Hardcover | 236 pages</p><p>Language English</p><p>ISBN10 0837412536</p><p>ISBN13 9780837412535</p>', '<p>About McCall\'s<br></p>', '', '', 0, 0, 1, 83);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_product_color`
---
-
-CREATE TABLE `tbl_product_color` (
-  `id` int(11) NOT NULL,
-  `color_id` int(11) NOT NULL,
-  `p_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_product_color`
---
-
-INSERT INTO `tbl_product_color` (`id`, `color_id`, `p_id`) VALUES
-(69, 1, 4),
-(70, 4, 4),
-(77, 6, 6),
-(82, 2, 12),
-(83, 9, 13),
-(84, 3, 14),
-(85, 2, 15),
-(86, 6, 15),
-(87, 3, 16),
-(88, 3, 17),
-(89, 2, 18),
-(90, 3, 19),
-(91, 1, 20),
-(92, 8, 21),
-(93, 2, 22),
-(94, 2, 23),
-(95, 2, 25),
-(96, 5, 26),
-(97, 2, 27),
-(98, 4, 27),
-(99, 5, 28),
-(100, 7, 29),
-(101, 10, 30),
-(102, 11, 31),
-(103, 14, 32),
-(105, 2, 34),
-(106, 1, 35),
-(107, 3, 36),
-(109, 6, 38),
-(110, 2, 39),
-(111, 11, 42),
-(149, 3, 10),
-(150, 6, 9),
-(151, 3, 8),
-(152, 7, 7),
-(159, 2, 77),
-(163, 17, 79),
-(164, 2, 78),
-(167, 3, 80),
-(168, 2, 81),
-(172, 1, 82),
-(173, 2, 82),
-(174, 4, 82),
-(274, 14, 100),
-(278, 5, 98),
-(285, 5, 96),
-(286, 24, 96),
-(297, 16, 93),
-(298, 1, 83),
-(299, 2, 83),
-(300, 3, 83),
-(301, 4, 83),
-(302, 5, 83),
-(303, 6, 83),
-(304, 8, 83),
-(305, 14, 83),
-(306, 17, 83),
-(307, 18, 83),
-(316, 2, 84),
-(325, 3, 87),
-(326, 17, 87),
-(343, 12, 89),
-(344, 2, 88),
-(345, 8, 88),
-(346, 17, 88),
-(347, 2, 90),
-(348, 6, 90),
-(349, 25, 90),
-(350, 27, 90),
-(351, 28, 90),
-(352, 27, 91),
-(356, 21, 85),
-(357, 22, 85),
-(358, 23, 85),
-(371, 2, 86),
-(372, 6, 86),
-(373, 17, 86),
-(374, 25, 97),
-(376, 2, 102),
-(387, 6, 101),
-(390, 2, 95),
-(391, 6, 95),
-(392, 2, 94),
-(393, 2, 92),
-(394, 29, 92),
-(395, 4, 103),
-(397, 7, 105),
-(399, 7, 107),
-(401, 4, 109),
-(402, 7, 110),
-(403, 5, 104),
-(404, 6, 99),
-(405, 3, 106),
-(406, 4, 108),
-(407, 4, 111),
-(408, 4, 112),
-(409, 6, 113),
-(410, 2, 114),
-(411, 4, 115),
-(412, 2, 116),
-(413, 5, 117),
-(414, 2, 118),
-(415, 2, 119),
-(416, 4, 120),
-(417, 6, 121),
-(418, 3, 122),
-(419, 5, 123),
-(420, 3, 124),
-(421, 4, 125),
-(422, 4, 126),
-(423, 2, 127),
-(424, 5, 128),
-(425, 2, 129),
-(426, 4, 130);
 
 -- --------------------------------------------------------
 
@@ -875,9 +702,9 @@ INSERT INTO `tbl_product_color` (`id`, `color_id`, `p_id`) VALUES
 
 CREATE TABLE `tbl_product_photo` (
   `pp_id` int(11) NOT NULL,
-  `photo` varchar(255) NOT NULL,
+  `photo` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `p_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_product_photo`
@@ -944,241 +771,6 @@ INSERT INTO `tbl_product_photo` (`pp_id`, `photo`, `p_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_product_size`
---
-
-CREATE TABLE `tbl_product_size` (
-  `id` int(11) NOT NULL,
-  `size_id` int(11) NOT NULL,
-  `p_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_product_size`
---
-
-INSERT INTO `tbl_product_size` (`id`, `size_id`, `p_id`) VALUES
-(44, 1, 6),
-(56, 8, 12),
-(57, 9, 12),
-(58, 10, 12),
-(59, 11, 12),
-(60, 12, 12),
-(61, 13, 12),
-(62, 9, 13),
-(63, 11, 13),
-(64, 13, 13),
-(65, 15, 13),
-(66, 9, 14),
-(67, 11, 14),
-(68, 12, 14),
-(69, 13, 14),
-(70, 9, 15),
-(71, 11, 15),
-(72, 13, 15),
-(73, 15, 16),
-(74, 16, 16),
-(75, 17, 16),
-(76, 16, 17),
-(77, 17, 17),
-(78, 14, 18),
-(79, 15, 18),
-(80, 16, 18),
-(81, 17, 18),
-(82, 15, 19),
-(83, 16, 19),
-(84, 17, 19),
-(85, 14, 20),
-(86, 15, 20),
-(87, 17, 20),
-(88, 15, 21),
-(89, 17, 21),
-(90, 15, 22),
-(91, 16, 22),
-(92, 17, 22),
-(93, 15, 23),
-(94, 16, 23),
-(95, 17, 23),
-(96, 18, 25),
-(97, 19, 25),
-(98, 20, 25),
-(99, 21, 25),
-(100, 19, 26),
-(101, 21, 26),
-(102, 22, 26),
-(103, 23, 26),
-(104, 19, 27),
-(105, 20, 27),
-(106, 21, 27),
-(107, 22, 27),
-(108, 19, 28),
-(109, 20, 28),
-(110, 21, 28),
-(111, 19, 29),
-(112, 20, 29),
-(113, 22, 29),
-(114, 1, 30),
-(115, 2, 30),
-(116, 3, 30),
-(117, 4, 30),
-(118, 23, 31),
-(119, 26, 32),
-(123, 2, 34),
-(124, 2, 35),
-(125, 2, 36),
-(126, 3, 36),
-(129, 2, 38),
-(130, 3, 38),
-(131, 4, 38),
-(132, 5, 38),
-(133, 27, 39),
-(134, 8, 42),
-(210, 3, 10),
-(211, 4, 10),
-(212, 5, 10),
-(213, 6, 10),
-(214, 3, 9),
-(215, 4, 9),
-(216, 3, 8),
-(217, 4, 8),
-(218, 2, 7),
-(219, 3, 7),
-(220, 4, 7),
-(249, 1, 79),
-(250, 2, 79),
-(251, 3, 79),
-(252, 1, 78),
-(253, 2, 78),
-(254, 3, 78),
-(255, 4, 78),
-(256, 5, 78),
-(259, 26, 80),
-(262, 3, 82),
-(263, 4, 82),
-(474, 3, 100),
-(475, 4, 100),
-(476, 5, 100),
-(477, 6, 100),
-(488, 4, 98),
-(489, 5, 98),
-(490, 6, 98),
-(491, 7, 98),
-(526, 3, 96),
-(527, 4, 96),
-(528, 5, 96),
-(529, 6, 96),
-(530, 7, 96),
-(538, 27, 93),
-(539, 1, 83),
-(540, 2, 83),
-(541, 3, 83),
-(542, 4, 83),
-(543, 5, 83),
-(544, 6, 83),
-(545, 7, 83),
-(578, 2, 84),
-(579, 3, 84),
-(580, 4, 84),
-(581, 5, 84),
-(582, 6, 84),
-(596, 29, 87),
-(597, 30, 87),
-(598, 31, 87),
-(599, 32, 87),
-(600, 33, 87),
-(601, 34, 87),
-(602, 35, 87),
-(603, 36, 87),
-(604, 37, 87),
-(605, 38, 87),
-(606, 39, 87),
-(625, 3, 89),
-(626, 4, 89),
-(627, 5, 89),
-(628, 6, 89),
-(629, 7, 89),
-(630, 3, 88),
-(631, 4, 88),
-(632, 5, 88),
-(633, 6, 88),
-(634, 7, 88),
-(635, 1, 90),
-(636, 2, 90),
-(637, 3, 90),
-(638, 4, 90),
-(639, 2, 91),
-(640, 3, 91),
-(641, 4, 91),
-(642, 5, 91),
-(643, 6, 91),
-(646, 15, 85),
-(647, 16, 85),
-(648, 17, 85),
-(649, 18, 85),
-(650, 19, 85),
-(651, 20, 85),
-(652, 21, 85),
-(653, 22, 85),
-(654, 23, 85),
-(655, 24, 85),
-(656, 25, 85),
-(661, 26, 86),
-(662, 8, 97),
-(663, 9, 97),
-(664, 10, 97),
-(665, 11, 97),
-(666, 12, 97),
-(667, 13, 97),
-(668, 14, 97),
-(669, 15, 97),
-(670, 16, 97),
-(671, 17, 97),
-(672, 18, 97),
-(673, 19, 97),
-(680, 42, 102),
-(681, 43, 102),
-(682, 44, 102),
-(683, 45, 102),
-(684, 46, 102),
-(685, 47, 102),
-(700, 27, 101),
-(702, 27, 95),
-(703, 33, 94),
-(704, 27, 92),
-(705, 5, 103),
-(707, 3, 105),
-(709, 4, 107),
-(711, 4, 109),
-(712, 3, 110),
-(713, 5, 104),
-(714, 40, 99),
-(715, 41, 99),
-(716, 4, 106),
-(717, 5, 108),
-(718, 4, 111),
-(719, 3, 112),
-(720, 4, 113),
-(721, 5, 114),
-(722, 3, 115),
-(723, 4, 116),
-(724, 1, 117),
-(725, 4, 118),
-(726, 6, 119),
-(727, 5, 120),
-(728, 2, 121),
-(729, 6, 122),
-(730, 2, 123),
-(731, 2, 124),
-(732, 3, 125),
-(733, 3, 126),
-(734, 3, 127),
-(735, 3, 128),
-(736, 4, 129),
-(737, 2, 130);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_rating`
 --
 
@@ -1186,9 +778,9 @@ CREATE TABLE `tbl_rating` (
   `rt_id` int(11) NOT NULL,
   `p_id` int(11) NOT NULL,
   `cust_id` int(11) NOT NULL,
-  `comment` text NOT NULL,
+  `comment` mediumtext COLLATE utf8mb4_bin NOT NULL,
   `rating` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -1198,10 +790,10 @@ CREATE TABLE `tbl_rating` (
 
 CREATE TABLE `tbl_service` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `content` text NOT NULL,
-  `photo` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `title` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `content` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `photo` varchar(255) COLLATE utf8mb4_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_service`
@@ -1223,19 +815,19 @@ INSERT INTO `tbl_service` (`id`, `title`, `content`, `photo`) VALUES
 
 CREATE TABLE `tbl_settings` (
   `id` int(11) NOT NULL,
-  `logo` varchar(100) NOT NULL,
-  `favicon` varchar(100) NOT NULL,
-  `footer_about` text NOT NULL,
-  `footer_copyright` text NOT NULL,
-  `contact_address` text NOT NULL,
-  `contact_email` varchar(100) NOT NULL,
-  `contact_phone` varchar(100) NOT NULL,
-  `contact_fax` varchar(100) NOT NULL,
-  `contact_map_iframe` text NOT NULL,
-  `receive_email` varchar(100) NOT NULL,
-  `receive_email_subject` varchar(50) NOT NULL,
-  `receive_email_thank_you_message` text NOT NULL,
-  `forget_password_message` text NOT NULL,
+  `logo` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `favicon` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `footer_about` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `footer_copyright` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `contact_address` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `contact_email` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `contact_phone` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `contact_fax` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `contact_map_iframe` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `receive_email` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `receive_email_subject` varchar(50) COLLATE utf8mb4_bin NOT NULL,
+  `receive_email_thank_you_message` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `forget_password_message` mediumtext COLLATE utf8mb4_bin NOT NULL,
   `total_recent_post_footer` int(10) NOT NULL,
   `total_popular_post_footer` int(10) NOT NULL,
   `total_recent_post_sidebar` int(11) NOT NULL,
@@ -1243,42 +835,42 @@ CREATE TABLE `tbl_settings` (
   `total_featured_product_home` int(11) NOT NULL,
   `total_latest_product_home` int(11) NOT NULL,
   `total_popular_product_home` int(11) NOT NULL,
-  `meta_title_home` text NOT NULL,
-  `meta_keyword_home` text NOT NULL,
-  `meta_description_home` text NOT NULL,
-  `banner_login` varchar(255) NOT NULL,
-  `banner_registration` varchar(255) NOT NULL,
-  `banner_forget_password` varchar(255) NOT NULL,
-  `banner_reset_password` varchar(255) NOT NULL,
-  `banner_search` varchar(150) NOT NULL,
-  `banner_cart` varchar(100) NOT NULL,
-  `banner_checkout` varchar(100) NOT NULL,
-  `banner_product_category` varchar(255) NOT NULL,
-  `banner_blog` varchar(150) NOT NULL,
-  `cta_title` varchar(200) NOT NULL,
-  `cta_content` text NOT NULL,
-  `cta_read_more_text` varchar(100) NOT NULL,
-  `cta_read_more_url` varchar(100) NOT NULL,
-  `cta_photo` varchar(255) NOT NULL,
-  `featured_product_title` varchar(100) NOT NULL,
-  `featured_product_subtitle` varchar(100) NOT NULL,
-  `latest_product_title` varchar(100) NOT NULL,
-  `latest_product_subtitle` varchar(255) NOT NULL,
-  `popular_product_title` varchar(50) NOT NULL,
-  `popular_product_subtitle` varchar(100) NOT NULL,
-  `testimonial_title` varchar(255) NOT NULL,
-  `testimonial_subtitle` varchar(255) NOT NULL,
-  `testimonial_photo` varchar(255) NOT NULL,
-  `blog_title` varchar(50) NOT NULL,
-  `blog_subtitle` varchar(100) NOT NULL,
-  `newsletter_text` text NOT NULL,
-  `paypal_email` varchar(100) NOT NULL,
-  `stripe_public_key` varchar(255) NOT NULL,
-  `stripe_secret_key` varchar(100) NOT NULL,
-  `bank_detail` text NOT NULL,
-  `before_head` text NOT NULL,
-  `after_body` text NOT NULL,
-  `before_body` text NOT NULL,
+  `meta_title_home` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `meta_keyword_home` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `meta_description_home` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `banner_login` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `banner_registration` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `banner_forget_password` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `banner_reset_password` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `banner_search` varchar(150) COLLATE utf8mb4_bin NOT NULL,
+  `banner_cart` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `banner_checkout` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `banner_product_category` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `banner_blog` varchar(150) COLLATE utf8mb4_bin NOT NULL,
+  `cta_title` varchar(200) COLLATE utf8mb4_bin NOT NULL,
+  `cta_content` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `cta_read_more_text` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `cta_read_more_url` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `cta_photo` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `featured_product_title` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `featured_product_subtitle` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `latest_product_title` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `latest_product_subtitle` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `popular_product_title` varchar(50) COLLATE utf8mb4_bin NOT NULL,
+  `popular_product_subtitle` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `testimonial_title` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `testimonial_subtitle` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `testimonial_photo` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `blog_title` varchar(50) COLLATE utf8mb4_bin NOT NULL,
+  `blog_subtitle` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `newsletter_text` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `paypal_email` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `stripe_public_key` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `stripe_secret_key` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `bank_detail` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `before_head` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `after_body` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `before_body` mediumtext COLLATE utf8mb4_bin NOT NULL,
   `home_service_on_off` int(11) NOT NULL,
   `home_welcome_on_off` int(11) NOT NULL,
   `home_featured_product_on_off` int(11) NOT NULL,
@@ -1293,7 +885,7 @@ CREATE TABLE `tbl_settings` (
   `ads_above_popular_product_on_off` int(1) NOT NULL,
   `ads_above_testimonial_on_off` int(1) NOT NULL,
   `ads_category_sidebar_on_off` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_settings`
@@ -1310,19 +902,21 @@ INSERT INTO `tbl_settings` (`id`, `logo`, `favicon`, `footer_about`, `footer_cop
 
 CREATE TABLE `tbl_shipping_cost` (
   `shipping_cost_id` int(11) NOT NULL,
-  `country_id` int(11) NOT NULL,
-  `amount` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `county_id` int(11) NOT NULL,
+  `amount` varchar(20) COLLATE utf8mb4_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_shipping_cost`
 --
 
-INSERT INTO `tbl_shipping_cost` (`shipping_cost_id`, `country_id`, `amount`) VALUES
-(1, 228, '11'),
-(2, 167, '10'),
-(3, 13, '8'),
-(4, 230, '0');
+INSERT INTO `tbl_shipping_cost` (`shipping_cost_id`, `county_id`, `amount`) VALUES
+(1, 271, '130'),
+(2, 272, '160'),
+(3, 270, '140'),
+(4, 287, '120'),
+(5, 289, '150'),
+(6, 290, '120');
 
 -- --------------------------------------------------------
 
@@ -1332,79 +926,15 @@ INSERT INTO `tbl_shipping_cost` (`shipping_cost_id`, `country_id`, `amount`) VAL
 
 CREATE TABLE `tbl_shipping_cost_all` (
   `sca_id` int(11) NOT NULL,
-  `amount` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `amount` varchar(20) COLLATE utf8mb4_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_shipping_cost_all`
 --
 
 INSERT INTO `tbl_shipping_cost_all` (`sca_id`, `amount`) VALUES
-(1, '100');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_size`
---
-
-CREATE TABLE `tbl_size` (
-  `size_id` int(11) NOT NULL,
-  `size_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_size`
---
-
-INSERT INTO `tbl_size` (`size_id`, `size_name`) VALUES
-(1, 'XS'),
-(2, 'S'),
-(3, 'M'),
-(4, 'L'),
-(5, 'XL'),
-(6, 'XXL'),
-(7, '3XL'),
-(8, '31'),
-(9, '32'),
-(10, '33'),
-(11, '34'),
-(12, '35'),
-(13, '36'),
-(14, '37'),
-(15, '38'),
-(16, '39'),
-(17, '40'),
-(18, '41'),
-(19, '42'),
-(20, '43'),
-(21, '44'),
-(22, '45'),
-(23, '46'),
-(24, '47'),
-(25, '48'),
-(26, 'Free Size'),
-(27, 'One Size for All'),
-(28, '10'),
-(29, '12 Months'),
-(30, '2T'),
-(31, '3T'),
-(32, '4T'),
-(33, '5T'),
-(34, '6 Years'),
-(35, '7 Years'),
-(36, '8 Years'),
-(37, '10 Years'),
-(38, '12 Years'),
-(39, '14 Years'),
-(40, '256 GB'),
-(41, '128 GB'),
-(42, '14 Plus'),
-(43, '16 Plus'),
-(44, '18 Plus'),
-(45, '20 Plus'),
-(46, '22 Plus'),
-(47, '24 Plus');
+(1, '150');
 
 -- --------------------------------------------------------
 
@@ -1414,13 +944,13 @@ INSERT INTO `tbl_size` (`size_id`, `size_name`) VALUES
 
 CREATE TABLE `tbl_slider` (
   `id` int(11) NOT NULL,
-  `photo` varchar(255) NOT NULL,
-  `heading` varchar(255) NOT NULL,
-  `content` text NOT NULL,
-  `button_text` varchar(255) NOT NULL,
-  `button_url` varchar(255) NOT NULL,
-  `position` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `photo` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `heading` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `content` mediumtext COLLATE utf8mb4_bin NOT NULL,
+  `button_text` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `button_url` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `position` varchar(255) COLLATE utf8mb4_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_slider`
@@ -1439,10 +969,10 @@ INSERT INTO `tbl_slider` (`id`, `photo`, `heading`, `content`, `button_text`, `b
 
 CREATE TABLE `tbl_social` (
   `social_id` int(11) NOT NULL,
-  `social_name` varchar(30) NOT NULL,
-  `social_url` varchar(255) NOT NULL,
-  `social_icon` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `social_name` varchar(30) COLLATE utf8mb4_bin NOT NULL,
+  `social_url` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `social_icon` varchar(30) COLLATE utf8mb4_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_social`
@@ -1474,12 +1004,12 @@ INSERT INTO `tbl_social` (`social_id`, `social_name`, `social_url`, `social_icon
 
 CREATE TABLE `tbl_subscriber` (
   `subs_id` int(11) NOT NULL,
-  `subs_email` varchar(255) NOT NULL,
-  `subs_date` varchar(100) NOT NULL,
-  `subs_date_time` varchar(100) NOT NULL,
-  `subs_hash` varchar(255) NOT NULL,
+  `subs_email` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `subs_date` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `subs_date_time` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `subs_hash` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `subs_active` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_subscriber`
@@ -1501,9 +1031,9 @@ INSERT INTO `tbl_subscriber` (`subs_id`, `subs_email`, `subs_date`, `subs_date_t
 
 CREATE TABLE `tbl_top_category` (
   `tcat_id` int(11) NOT NULL,
-  `tcat_name` varchar(255) NOT NULL,
+  `tcat_name` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `show_on_menu` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_top_category`
@@ -1529,14 +1059,14 @@ INSERT INTO `tbl_top_category` (`tcat_id`, `tcat_name`, `show_on_menu`) VALUES
 
 CREATE TABLE `tbl_user` (
   `id` int(10) NOT NULL,
-  `full_name` varchar(100) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `phone` varchar(100) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `photo` varchar(255) NOT NULL,
-  `role` varchar(30) NOT NULL,
-  `status` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `full_name` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `phone` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `photo` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `role` varchar(30) COLLATE utf8mb4_bin NOT NULL,
+  `status` varchar(10) COLLATE utf8mb4_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_user`
@@ -1554,9 +1084,9 @@ INSERT INTO `tbl_user` (`id`, `full_name`, `email`, `phone`, `password`, `photo`
 
 CREATE TABLE `tbl_video` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `iframe_code` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `title` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `iframe_code` mediumtext COLLATE utf8mb4_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tbl_video`
@@ -1570,12 +1100,6 @@ INSERT INTO `tbl_video` (`id`, `title`, `iframe_code`) VALUES
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `tbl_color`
---
-ALTER TABLE `tbl_color`
-  ADD PRIMARY KEY (`color_id`);
 
 --
 -- Indexes for table `tbl_counties`
@@ -1656,22 +1180,10 @@ ALTER TABLE `tbl_product`
   ADD PRIMARY KEY (`p_id`);
 
 --
--- Indexes for table `tbl_product_color`
---
-ALTER TABLE `tbl_product_color`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `tbl_product_photo`
 --
 ALTER TABLE `tbl_product_photo`
   ADD PRIMARY KEY (`pp_id`);
-
---
--- Indexes for table `tbl_product_size`
---
-ALTER TABLE `tbl_product_size`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_rating`
@@ -1702,12 +1214,6 @@ ALTER TABLE `tbl_shipping_cost`
 --
 ALTER TABLE `tbl_shipping_cost_all`
   ADD PRIMARY KEY (`sca_id`);
-
---
--- Indexes for table `tbl_size`
---
-ALTER TABLE `tbl_size`
-  ADD PRIMARY KEY (`size_id`);
 
 --
 -- Indexes for table `tbl_slider`
@@ -1750,12 +1256,6 @@ ALTER TABLE `tbl_video`
 --
 
 --
--- AUTO_INCREMENT for table `tbl_color`
---
-ALTER TABLE `tbl_color`
-  MODIFY `color_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
---
 -- AUTO_INCREMENT for table `tbl_counties`
 --
 ALTER TABLE `tbl_counties`
@@ -1765,7 +1265,7 @@ ALTER TABLE `tbl_counties`
 -- AUTO_INCREMENT for table `tbl_customer`
 --
 ALTER TABLE `tbl_customer`
-  MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tbl_customer_message`
@@ -1801,7 +1301,7 @@ ALTER TABLE `tbl_mid_category`
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbl_page`
@@ -1813,7 +1313,7 @@ ALTER TABLE `tbl_page`
 -- AUTO_INCREMENT for table `tbl_payment`
 --
 ALTER TABLE `tbl_payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `tbl_photo`
@@ -1834,22 +1334,10 @@ ALTER TABLE `tbl_product`
   MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
--- AUTO_INCREMENT for table `tbl_product_color`
---
-ALTER TABLE `tbl_product_color`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=427;
-
---
 -- AUTO_INCREMENT for table `tbl_product_photo`
 --
 ALTER TABLE `tbl_product_photo`
   MODIFY `pp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=196;
-
---
--- AUTO_INCREMENT for table `tbl_product_size`
---
-ALTER TABLE `tbl_product_size`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=738;
 
 --
 -- AUTO_INCREMENT for table `tbl_rating`
@@ -1873,19 +1361,13 @@ ALTER TABLE `tbl_settings`
 -- AUTO_INCREMENT for table `tbl_shipping_cost`
 --
 ALTER TABLE `tbl_shipping_cost`
-  MODIFY `shipping_cost_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `shipping_cost_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tbl_shipping_cost_all`
 --
 ALTER TABLE `tbl_shipping_cost_all`
   MODIFY `sca_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `tbl_size`
---
-ALTER TABLE `tbl_size`
-  MODIFY `size_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `tbl_slider`

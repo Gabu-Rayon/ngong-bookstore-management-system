@@ -164,9 +164,14 @@ foreach ($result as $row)
                             <h4>
                                 ksh<?php echo $row['p_current_price']; ?>
                                 <?php if($row['p_old_price'] != ''): ?>
-                                <del>
-                                    ksh<?php echo $row['p_old_price']; ?>
-                                </del>
+                                <i>
+                                    <small>
+                                        <del>
+                                            ksh<?php echo $row['p_old_price']; ?>
+                                        </del>
+                                    </small>
+                                </i>
+
                                 <?php endif; ?>
                             </h4>
                             <div class="rating">
@@ -298,9 +303,13 @@ foreach ($result as $row)
                             <h4>
                                 ksh<?php echo $row['p_current_price']; ?>
                                 <?php if($row['p_old_price'] != ''): ?>
-                                <del>
-                                    ksh<?php echo $row['p_old_price']; ?>
-                                </del>
+                                <i>
+                                    <small><del>
+                                            ksh<?php echo $row['p_old_price']; ?>
+                                        </del>
+                                    </small>
+                                </i>
+
                                 <?php endif; ?>
                             </h4>
                             <div class="rating">
@@ -433,9 +442,13 @@ foreach ($result as $row)
                             <h4>
                                 ksh<?php echo $row['p_current_price']; ?>
                                 <?php if($row['p_old_price'] != ''): ?>
-                                <del>
-                                    ksh<?php echo $row['p_old_price']; ?>
-                                </del>
+                                <i>
+                                    <small>
+                                        <del>
+                                            ksh<?php echo $row['p_old_price']; ?>
+                                        </del>
+                                    </small>
+                                </i>
                                 <?php endif; ?>
                             </h4>
                             <div class="rating">

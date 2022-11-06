@@ -6,7 +6,7 @@ if(isset($_POST['form1'])) {
 
     $valid = 1;
 
-    if(empty($_POST['country_id'])) {
+    if(empty($_POST['county_id'])) {
         $valid = 0;
         $error_message .= 'You must have to select a country.<br>';
     }
@@ -22,8 +22,8 @@ if(isset($_POST['form1'])) {
     }
 
     if($valid == 1) {
-        $statement = $pdo->prepare("INSERT INTO tbl_shipping_cost (country_id,amount) VALUES (?,?)");
-        $statement->execute(array($_POST['country_id'],$_POST['amount']));
+        $statement = $pdo->prepare("INSERT INTO tbl_shipping_cost (county_id,amount) VALUES (?,?)");
+        $statement->execute(array($_POST['county_id'],$_POST['amount']));
 
         $success_message = 'Shipping cost is added successfully.';
     }
@@ -69,17 +69,17 @@ if(isset($_POST['form2'])) {
 
             <?php if($error_message): ?>
             <div class="callout callout-danger">
-            
-            <p>
-            <?php echo $error_message; ?>
-            </p>
+
+                <p>
+                    <?php echo $error_message; ?>
+                </p>
             </div>
             <?php endif; ?>
 
             <?php if($success_message): ?>
             <div class="callout callout-success">
-            
-            <p><?php echo $success_message; ?></p>
+
+                <p><?php echo $success_message; ?></p>
             </div>
             <?php endif; ?>
 
@@ -88,27 +88,28 @@ if(isset($_POST['form2'])) {
                 <div class="box box-info">
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="" class="col-sm-2 control-label">Select Country <span>*</span></label>
+                            <label for="" class="col-sm-2 control-label">Select a County <span>*</span></label>
                             <div class="col-sm-4">
-                                <select name="country_id" class="form-control select2">
-                                    <option value="">Select a country</option>
+                                <select name="county_id" class="form-control select2">
+                                    <option value="">Select a county</option>
                                     <?php
-                                    $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
+                                    $statement = $pdo->prepare("SELECT * FROM tbl_counties ORDER BY county_name ASC");
                                     $statement->execute();
                                     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                                     foreach ($result as $row) {
 
 
-                                        $statement = $pdo->prepare("SELECT * FROM tbl_shipping_cost WHERE country_id=?");
-                                        $statement->execute(array($row['country_id']));
+                                        $statement = $pdo->prepare("SELECT * FROM tbl_shipping_cost WHERE county_id=?");
+                                        $statement->execute(array($row['county_id']));
                                         $total = $statement->rowCount();
                                         if($total) {
                                             continue;
                                         }
 
                                         ?>
-                                        <option value="<?php echo $row['country_id']; ?>"><?php echo $row['country_name']; ?></option>
-                                        <?php
+                                    <option value="<?php echo $row['county_id']; ?>">
+                                        <?php echo $row['county_name']; ?></option>
+                                    <?php
                                     }
                                     ?>
                                 </select>
@@ -135,78 +136,68 @@ if(isset($_POST['form2'])) {
         </div>
     </div>
 </section>
-
-
-
-
 <section class="content-header">
-	<div class="content-header-left">
-		<h1>View Shipping Costs</h1>
-	</div>
+    <div class="content-header-left">
+        <h1>View Shipping Costs</h1>
+    </div>
 </section>
-
-
 <section class="content">
-
-  <div class="row">
-    <div class="col-md-12">
-
-
-      <div class="box box-info">
-        
-        <div class="box-body table-responsive">
-          <table id="example1" class="table table-bordered table-hover table-striped">
-			<thead>
-			    <tr>
-			        <th>#</th>
-			        <th>Country Name</th>
-                    <th>Country Amount</th>
-			        <th>Action</th>
-			    </tr>
-			</thead>
-            <tbody>
-            	<?php
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-body table-responsive">
+                    <table id="example1" class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>County Name</th>
+                                <th>County Amount</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
             	$i=0;
             	$statement = $pdo->prepare("SELECT * 
                                         FROM tbl_shipping_cost t1
-                                        JOIN tbl_country t2 
-                                        ON t1.country_id = t2.country_id 
-                                        ORDER BY t2.country_name ASC");
+                                        JOIN tbl_counties t2 
+                                        ON t1.county_id = t2.county_id 
+                                        ORDER BY t2.county_name ASC");
             	$statement->execute();
             	$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
             	foreach ($result as $row) {
             		$i++;
             		?>
-					<tr>
-	                    <td><?php echo $i; ?></td>
-	                    <td><?php echo $row['country_name']; ?></td>
-                        <td><?php echo $row['amount']; ?></td>
-	                    <td>
-	                        <a href="shipping-cost-edit.php?id=<?php echo $row['shipping_cost_id']; ?>" class="btn btn-primary btn-xs">Edit</a>
-	                        <a href="#" class="btn btn-danger btn-xs" data-href="shipping-cost-delete.php?id=<?php echo $row['shipping_cost_id']; ?>" data-toggle="modal" data-target="#confirm-delete">Delete</a>
-	                    </td>
-	                </tr>
-            		<?php
+                            <tr>
+                                <td><?php echo $i; ?></td>
+                                <td><?php echo $row['county_name']; ?></td>
+                                <td><?php echo $row['amount']; ?></td>
+                                <td>
+                                    <a href="shipping-cost-edit.php?id=<?php echo $row['shipping_cost_id']; ?>"
+                                        class="btn btn-primary btn-xs">Edit</a>
+                                    <a href="#" class="btn btn-danger btn-xs"
+                                        data-href="shipping-cost-delete.php?id=<?php echo $row['shipping_cost_id']; ?>"
+                                        data-toggle="modal" data-target="#confirm-delete">Delete</a>
+                                </td>
+                            </tr>
+                            <?php
             	}
             	?>
-            </tbody>
-          </table>
-        </div>
-      </div> 
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-      <h4 style="background: #dd4b39;color:#fff;padding:10px 20px;">NB: If a country does not exist in the above list, the following "Rest of the World" shipping cost will be applied upon that.</h4>
+            <h6 style="background: #dd4b39;color:#fff;padding:10px 20px;">NB: If a county does not exist in the above
+                list, the following "Rest of the Counties & Countries" shipping cost will be applied upon that.</h6>
 
 </section>
-
-
 <section class="content-header">
     <div class="content-header-left">
-        <h1>Shipping Cost (Rest of the world)</h1>
+        <h4>Shipping Cost (Rest of the Counties & Countries)</h4>
     </div>
 </section>
-
 <section class="content">
-
     <?php
     $statement = $pdo->prepare("SELECT * FROM tbl_shipping_cost_all WHERE sca_id=1");
     $statement->execute();
@@ -215,10 +206,8 @@ if(isset($_POST['form2'])) {
         $amount = $row['amount'];
     }
     ?>
-
     <div class="row">
         <div class="col-md-12">
-
             <form class="form-horizontal" action="" method="post">
                 <div class="box box-info">
                     <div class="box-body">
@@ -237,14 +226,11 @@ if(isset($_POST['form2'])) {
                     </div>
                 </div>
             </form>
-
-
         </div>
     </div>
 </section>
-
-
-<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -261,6 +247,4 @@ if(isset($_POST['form2'])) {
         </div>
     </div>
 </div>
-
-
 <?php require_once('footer.php'); ?>

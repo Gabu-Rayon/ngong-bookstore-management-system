@@ -117,9 +117,7 @@ if(!isset($_SESSION['user'])) {
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="size.php"><i class="fa fa-circle-o"></i> Size</a></li>
-                            <li><a href="color.php"><i class="fa fa-circle-o"></i> Color</a></li>
-                            <li><a href="country.php"><i class="fa fa-circle-o"></i> Country</a></li>
+                            <li><a href="county.php"><i class="fa fa-circle-o"></i> County</a></li>
                             <li><a href="shipping-cost.php"><i class="fa fa-circle-o"></i> Shipping Cost</a></li>
                             <li><a href="top-category.php"><i class="fa fa-circle-o"></i> Top Level Category</a></li>
                             <li><a href="mid-category.php"><i class="fa fa-circle-o"></i> Mid Level Category</a></li>

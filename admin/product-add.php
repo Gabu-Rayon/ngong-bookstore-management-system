@@ -134,23 +134,6 @@ if(isset($_POST['form1'])) {
 										$_POST['p_is_active'],
 										$_POST['ecat_id']
 									));
-
-		
-
-        if(isset($_POST['size'])) {
-			foreach($_POST['size'] as $value) {
-				$statement = $pdo->prepare("INSERT INTO tbl_product_size (size_id,p_id) VALUES (?,?)");
-				$statement->execute(array($value,$ai_id));
-			}
-		}
-
-		if(isset($_POST['color'])) {
-			foreach($_POST['color'] as $value) {
-				$statement = $pdo->prepare("INSERT INTO tbl_product_color (color_id,p_id) VALUES (?,?)");
-				$statement->execute(array($value,$ai_id));
-			}
-		}
-	
     	$success_message = 'Product is added successfully.';
     }
 }
@@ -164,8 +147,6 @@ if(isset($_POST['form1'])) {
         <a href="product.php" class="btn btn-primary btn-sm">View All</a>
     </div>
 </section>
-
-
 <section class="content">
 
     <div class="row">
@@ -250,42 +231,6 @@ if(isset($_POST['form1'])) {
                             <label for="" class="col-sm-3 control-label">Quantity <span>*</span></label>
                             <div class="col-sm-4">
                                 <input type="text" name="p_qty" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Select Size</label>
-                            <div class="col-sm-4">
-                                <select name="size[]" class="form-control select2" multiple="multiple">
-                                    <?php
-									$statement = $pdo->prepare("SELECT * FROM tbl_size ORDER BY size_id ASC");
-									$statement->execute();
-									$result = $statement->fetchAll(PDO::FETCH_ASSOC);			
-									foreach ($result as $row) {
-										?>
-                                    <option value="<?php echo $row['size_id']; ?>"><?php echo $row['size_name']; ?>
-                                    </option>
-                                    <?php
-									}
-									?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Select Color</label>
-                            <div class="col-sm-4">
-                                <select name="color[]" class="form-control select2" multiple="multiple">
-                                    <?php
-									$statement = $pdo->prepare("SELECT * FROM tbl_color ORDER BY color_id ASC");
-									$statement->execute();
-									$result = $statement->fetchAll(PDO::FETCH_ASSOC);			
-									foreach ($result as $row) {
-										?>
-                                    <option value="<?php echo $row['color_id']; ?>"><?php echo $row['color_name']; ?>
-                                    </option>
-                                    <?php
-									}
-									?>
-                                </select>
                             </div>
                         </div>
                         <div class="form-group">
