@@ -227,8 +227,6 @@ foreach ($result as $row) {
     $tcat_id = $row['tcat_id'];
 }
 ?>
-
-
 <section class="content">
 
     <div class="row">
@@ -451,13 +449,9 @@ foreach ($result as $row) {
                         </div>
                     </div>
                 </div>
-
             </form>
-
-
         </div>
     </div>
-
 </section>
 
 <?php require_once('footer.php'); ?>

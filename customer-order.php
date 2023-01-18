@@ -1,3 +1,22 @@
+<style>
+.button {
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    border-radius: rounded;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button1 {
+    padding: 10px 20px;
+}
+</style>
 <?php require_once('header.php'); ?>
 
 <?php
@@ -43,7 +62,7 @@ if(!isset($_SESSION['customer'])) {
                             <tbody>
 
 
-            <?php
+                                <?php
             /* ===================== Pagination Code Starts ================== */
             $adjacents = 5;
 
@@ -148,45 +167,46 @@ if(!isset($_SESSION['customer'])) {
                                 foreach ($result as $row) {
                                     $tip++;
                                     ?>
-                                    <tr>
-                                        <td><?php echo $tip; ?></td>
-                                        <td>
-                                            <?php
+                                <tr>
+                                    <td><?php echo $tip; ?></td>
+                                    <td>
+                                        <?php
                                             $statement1 = $pdo->prepare("SELECT * FROM tbl_order WHERE payment_id=?");
                                             $statement1->execute(array($row['payment_id']));
                                             $result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
                                             foreach ($result1 as $row1) {
-                                                echo 'Product Name: '.$row1['product_name'];
-                                                echo '<br>Size: '.$row1['size'];
-                                                echo '<br>Color: '.$row1['color'];
+                                                echo 'Product Name: '.$row1['product_name'];                                                
                                                 echo '<br>Quantity: '.$row1['quantity'];
-                                                echo '<br>Unit Price: $'.$row1['unit_price'];
+                                                echo '<br>Unit Price: Ksh ' .$row1['unit_price'];
                                                 echo '<br><br>';
                                             }
                                             ?>
-                                        </td>
-                                        <td><?php echo $row['payment_date']; ?></td>
-                                        <td><?php echo $row['txnid']; ?></td>
-                                        <td><?php echo '$'.$row['paid_amount']; ?></td>
-                                        <td><?php echo $row['payment_status']; ?></td>
-                                        <td><?php echo $row['payment_method']; ?></td>
-                                        <td><?php echo $row['payment_id']; ?></td>
-                                    </tr>
-                                    <?php
+                                    </td>
+                                    <td><?php echo $row['payment_date']; ?></td>
+                                    <td><?php echo $row['txnid']; ?></td>
+                                    <td><?php echo 'Ksh  ' .$row['paid_amount']; ?></td>
+                                    <td><?php echo $row['payment_status']; ?></td>
+                                    <td><?php echo $row['payment_method']; ?></td>
+                                    <td><?php echo $row['payment_id']; ?></td>
+                                </tr>
+                                <?php
                                 } 
-                                ?>                               
-                                
+                                ?>
+
                             </tbody>
                         </table>
+                        <button style="color:green;" class="button button1" onclick=" window.print()">
+                            Print My Order
+                        </button>
                         <div class="pagination" style="overflow: hidden;">
-                        <?php 
+                            <?php 
                             echo $pagination; 
                         ?>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<?php require_once('footer.php'); ?>
+    <?php require_once('footer.php'); ?>

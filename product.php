@@ -309,7 +309,7 @@ if ($success_message1 != '') {
                                     </div>
                                 </div>
                                 <div class="p-price">
-                                    <span style="font-size:14px;"><?php echo LANG_VALUE_54; ?></span><br>
+                                    <span style="font-size:14px;"><?php  echo 'Book Price'; ?></span><br>
                                     <span>
                                         <?php if($p_old_price!=''): ?>
                                         <i><small><del><?php echo LANG_VALUE_1; ?><?php echo $p_old_price; ?></del></small></i>
@@ -330,7 +330,7 @@ if ($success_message1 != '') {
                                 </div>
                             </form>
                             <div class="share">
-                                <?php echo LANG_VALUE_58; ?> <br>
+                                <?php  echo 'Share This Book'; ?> <br>
                                 <div class="sharethis-inline-share-buttons"></div>
                             </div>
                         </div>
@@ -341,9 +341,9 @@ if ($success_message1 != '') {
                             <ul class="nav nav-tabs" role="tablist">
                                 <li role="presentation" class="active"><a href="#description"
                                         aria-controls="description" role="tab"
-                                        data-toggle="tab"><?php echo LANG_VALUE_59; ?></a></li>
+                                        data-toggle="tab"><?php  echo 'Book Description'; ?></a></li>
                                 <li role="presentation"><a href="#feature" aria-controls="feature" role="tab"
-                                        data-toggle="tab"><?php echo LANG_VALUE_60; ?></a></li>
+                                        data-toggle="tab"><?php  echo 'About Author'; ?></a></li>
                                 <li role="presentation"><a href="#condition" aria-controls="condition" role="tab"
                                         data-toggle="tab"><?php echo LANG_VALUE_61; ?></a></li>
                                 <li role="presentation"><a href="#return_policy" aria-controls="return_policy"
@@ -358,7 +358,7 @@ if ($success_message1 != '') {
                                     <p>
                                         <?php
                                         if($p_description == '') {
-                                            echo LANG_VALUE_70;
+                                            echo 'Book Description';
                                         } else {
                                             echo $p_description;
                                         }
@@ -369,7 +369,7 @@ if ($success_message1 != '') {
                                     <p>
                                         <?php
                                         if($p_feature == '') {
-                                            echo LANG_VALUE_71;
+                                            echo 'About Author';
                                         } else {
                                             echo $p_feature;
                                         }

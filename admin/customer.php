@@ -43,7 +43,9 @@
                                 <td>
                                     <?php echo $row['county_name']; ?><br>
                                     <?php echo $row['cust_town']; ?><br>
-                                    <?php echo $row['cust_location']; ?>
+                                    <?php echo $row['cust_location']; ?><br>
+                                    <i style="color:blue;">Address: </i> <?php echo $row['cust_address']; ?><br>
+                                    <i style="color:blue;">Zip Code: </i> <?php echo $row['cust_zip']; ?>
                                 </td>
                                 <td><?php if($row['cust_status']==1) {echo 'Active';} else {echo 'Inactive';} ?></td>
                                 <td>
@@ -68,7 +70,9 @@
 
 
 </section>
-
+<div style="padding:30px;">
+    <button style="color:green;" onclick=" window.print()">Print All customer</button>
+</div>
 
 <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true">

@@ -208,7 +208,7 @@ if (isset($_POST['form1'])) {
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_104; ?>
                                         *</label>
-                                    <input type="text" class="form-control" name="cust_phone" value="<?php if (isset($_POST['cust_phone'])) {
+                                    <input type="number" class="form-control" name="cust_phone" value="<?php if (isset($_POST['cust_phone'])) {
                                     echo $_POST['cust_phone'];
                                 } ?>">
                                 </div>
