@@ -59,6 +59,7 @@ if(!isset($_REQUEST['id'])) {
 			$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
 			foreach ($result as $row) {
 				$photo = $row['photo'];
+				//Delete A file 
 				unlink('../assets/uploads/product_photos/'.$photo);
 			}
 
